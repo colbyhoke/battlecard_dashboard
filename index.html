@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAS Competitive Intelligence — Battle Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181D; --panel:#1B2028; --panel-line:#2A3038;
+    --paper:#F7F4EE; --paper-line:#E3DFD2; --paper-line-strong:#CFC9B8;
+    --text-dark:#20242B; --text-dim:#5B584E; --text-light:#EDEBE3; --text-light-dim:#9B9C9A;
+    --attack:#A81E2C; --attack-bg:#F4E3E1; --defend:#2F6F4E; --defend-bg:#E4EDE3;
+    --gold:#B8892F; --gold-bg:#F0E4C8; --need:#8A6A1F; --need-bg:#FBF3DD;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ink);font-family:'IBM Plex Sans',sans-serif;color:var(--text-light);}
+  .app{display:flex;min-height:100vh;}
+
+  .sidebar{width:280px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--panel-line);padding:28px 20px;position:sticky;top:0;height:100vh;overflow-y:auto;}
+  .brand{margin-bottom:22px;}
+  .brand .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;}
+  .brand h1{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;margin:6px 0 4px;line-height:1.25;}
+  .brand p{font-size:12px;color:var(--text-light-dim);margin:0;line-height:1.5;}
+  .search{width:100%;margin:18px 0 14px;padding:9px 10px;border-radius:6px;border:1px solid var(--panel-line);background:#12161C;color:var(--text-light);font-family:'IBM Plex Sans',sans-serif;font-size:13px;}
+  .search:focus{outline:none;border-color:var(--gold);}
+  .comp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;}
+  .comp-tab{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px 10px 14px;border-radius:4px 10px 10px 4px;border:1px solid transparent;cursor:pointer;background:transparent;}
+  .comp-tab:hover{background:#20262F;}
+  .comp-tab.active{background:var(--paper);border-color:var(--paper-line-strong);}
+  .comp-tab.active .comp-name{color:var(--text-dark);}
+  .comp-tab.active .comp-cat{color:var(--text-dim);}
+  .comp-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--text-light);display:block;}
+  .comp-cat{font-size:11px;color:var(--text-light-dim);display:block;margin-top:1px;}
+  .status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+  .status-dot.ready{background:var(--defend);}
+  .status-dot.pending{background:#5B584E;border:1px solid var(--text-light-dim);}
+  .refresh-note{margin-top:22px;padding:12px 13px;border-radius:8px;background:#20262F;border:1px solid var(--panel-line);font-size:11.5px;line-height:1.6;color:var(--text-light-dim);}
+  .refresh-note b{color:var(--text-light);}
+
+  .main{flex:1;padding:44px 48px 80px;display:flex;justify-content:center;}
+  .sheet{width:100%;max-width:940px;}
+
+  .case-header{position:relative;background:var(--gold);border-radius:10px 10px 0 0;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .case-header .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#3B2C0E;text-transform:uppercase;}
+  .case-header .stamp{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3B2C0E;text-align:right;line-height:1.5;}
+
+  .paper{background:var(--paper);border-radius:0 0 10px 10px;padding:36px 40px 44px;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+  .comp-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:2px solid var(--text-dark);padding-bottom:14px;margin-bottom:6px;}
+  .comp-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;color:var(--text-dark);margin:0;line-height:1.1;}
+  .comp-sub{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim);margin-top:6px;text-transform:uppercase;letter-spacing:.05em;}
+  .curator{font-size:11.5px;color:var(--text-dim);margin:0 0 22px;font-style:italic;}
+  .pressure{text-align:right;flex-shrink:0;}
+  .pressure .label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .pressure .segs{display:flex;gap:3px;justify-content:flex-end;}
+  .pressure .seg{width:16px;height:8px;background:var(--paper-line);border-radius:1px;}
+  .pressure .seg.on{background:var(--attack);}
+  .pressure .word{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--attack);margin-top:5px;font-weight:500;}
+
+  .layout{display:flex;gap:36px;}
+  .toc{width:190px;flex-shrink:0;position:sticky;top:44px;align-self:flex-start;display:flex;flex-direction:column;gap:2px;}
+  .toc-item{font-size:12.5px;color:var(--text-dim);padding:7px 0 7px 12px;border-left:2px solid var(--paper-line);cursor:pointer;line-height:1.4;}
+  .toc-item:hover{color:var(--text-dark);}
+  .toc-item.active{color:var(--text-dark);border-left-color:var(--attack);font-weight:500;}
+
+  .content{flex:1;min-width:0;}
+  .section{margin-bottom:38px;scroll-margin-top:24px;}
+  .section h2{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:var(--text-dark);margin:0 0 12px;display:flex;align-items:center;gap:9px;}
+  .section h2::before{content:'';width:5px;height:5px;background:var(--attack);border-radius:50%;flex-shrink:0;}
+  .section h3.sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin:20px 0 8px;}
+  .section p{font-size:14px;line-height:1.7;color:var(--text-dark);margin:0 0 10px;}
+  .plainlist{margin:0 0 6px;padding-left:18px;display:flex;flex-direction:column;gap:5px;}
+  .plainlist li{font-size:13.5px;line-height:1.6;color:var(--text-dark);}
+  .taglist{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px;}
+  .taglist span{background:#fff;border:1px solid var(--paper-line-strong);border-radius:20px;padding:4px 11px;font-size:12px;color:var(--text-dark);}
+
+  .top3{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .top3 li{display:flex;gap:14px;align-items:flex-start;}
+  .top3 .n{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--gold);flex-shrink:0;line-height:1.4;}
+  .top3 .body span{font-size:14px;line-height:1.6;color:var(--text-dark);display:block;}
+  .top3 .body ul{margin:6px 0 0;padding-left:16px;display:flex;flex-direction:column;gap:3px;}
+  .top3 .body li{font-size:12.5px;color:var(--text-dim);line-height:1.5;}
+
+  .offer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;}
+  .offer-card{background:#FFFFFF;border:1px solid var(--paper-line-strong);border-radius:8px;padding:12px 14px;}
+  .offer-card .name{font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;color:var(--text-dark);display:block;margin-bottom:4px;}
+  .offer-card .desc{font-size:12.5px;color:var(--text-dim);line-height:1.5;}
+
+  .view-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px;}
+  .view-box{border-radius:8px;padding:14px 16px;}
+  .view-box.theirs{background:#EEEFEF;}
+  .view-box.sas{background:var(--defend-bg);}
+  .view-box h4{margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);}
+  .view-box ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:6px;}
+  .view-box li{font-size:13px;line-height:1.55;color:var(--text-dark);}
+
+  .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
+  .sw-box{border-radius:8px;padding:14px 16px;}
+  .sw-box.strength{background:var(--defend-bg);}
+  .sw-box.weak{background:var(--attack-bg);}
+  .sw-box h3{margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;}
+  .sw-box.strength h3{color:var(--defend);}
+  .sw-box.weak h3{color:var(--attack);}
+  .sw-box ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:6px;}
+  .sw-box li{font-size:13px;line-height:1.5;color:var(--text-dark);}
+
+  .dim-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--paper-line);}
+  .dim-row .dim-name{font-size:13.5px;color:var(--text-dark);}
+  .dim-verdict{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:20px;flex-shrink:0;}
+  .dim-verdict.sas{background:var(--defend-bg);color:var(--defend);}
+  .dim-verdict.them{background:var(--attack-bg);color:var(--attack);}
+
+  .tactic{border-radius:8px;padding:16px 18px;margin-bottom:12px;border-left:3px solid;}
+  .tactic.attack{border-color:var(--attack);background:#FBF1F0;}
+  .tactic.defend{border-color:var(--defend);background:#EFF5EE;}
+  .tactic h4{margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;}
+  .tactic.attack h4{color:var(--attack);}
+  .tactic.defend h4{color:var(--defend);}
+  .tactic ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:7px;}
+  .tactic li{font-size:13.5px;line-height:1.55;color:var(--text-dark);}
+
+  .qcard{background:#FFFFFF;border:1px solid var(--paper-line-strong);border-radius:8px;padding:14px 16px;margin-bottom:10px;}
+  .qcard .q{font-weight:500;font-size:13.5px;color:var(--text-dark);margin:0 0 6px;}
+  .qcard .a{font-size:13px;color:var(--text-dim);line-height:1.6;margin:0;}
+
+  .reframe{background:#FFFFFF;border:1px solid var(--gold);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:18px 20px;margin-bottom:14px;}
+  .reframe .kicker{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;display:block;}
+  .reframe p{margin:0;}
+
+  .need-box{background:var(--need-bg);border:1px dashed var(--need);border-radius:8px;padding:12px 16px;margin-bottom:10px;}
+  .need-box .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--need);display:block;margin-bottom:5px;}
+  .need-box p{margin:0;font-size:12.5px;color:#5c4a17;line-height:1.55;}
+  .need-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;}
+  .need-list li{font-size:12.5px;color:#5c4a17;font-family:'IBM Plex Mono',monospace;}
+
+  .changelog{margin-top:30px;border-top:1px solid var(--paper-line);padding-top:16px;}
+  .changelog .cl-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;}
+  .changelog ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .changelog li{font-size:12.5px;color:var(--text-dim);line-height:1.5;}
+  .changelog .cdate{font-family:'IBM Plex Mono',monospace;color:var(--text-dark);margin-right:8px;}
+
+  .pending-wrap{padding:60px 20px;text-align:center;}
+  .pending-wrap i{font-family:'Space Grotesk',sans-serif;font-size:20px;color:var(--text-dim);display:block;margin-bottom:10px;font-style:normal;font-weight:700;}
+  .pending-wrap p{font-size:13.5px;color:var(--text-dim);max-width:440px;margin:0 auto;line-height:1.6;}
+  .pending-list{list-style:none;margin:24px auto 0;padding:0;max-width:340px;text-align:left;display:flex;flex-direction:column;gap:6px;}
+  .pending-list li{font-size:12px;color:var(--paper-line-strong);border-bottom:1px dotted var(--paper-line);padding:5px 0;font-family:'IBM Plex Mono',monospace;}
+
+  .load-state{padding:80px 20px;text-align:center;color:var(--text-light-dim);font-family:'IBM Plex Mono',monospace;font-size:13px;}
+  .load-state.error{color:#E6A0A0;}
+
+  @media (max-width:860px){
+    .app{flex-direction:column;}
+    .sidebar{width:100%;height:auto;position:relative;}
+    .main{padding:28px 16px 60px;}
+    .layout{flex-direction:column;}
+    .toc{width:100%;position:relative;top:0;flex-direction:row;flex-wrap:wrap;gap:10px;}
+    .toc-item{border-left:none;border-bottom:2px solid var(--paper-line);padding:6px 4px;}
+    .toc-item.active{border-bottom-color:var(--attack);}
+    .sw-grid,.view-pair{grid-template-columns:1fr;}
+    .paper{padding:26px 20px 32px;}
+    .comp-title{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="brand">
+      <div class="eyebrow">SAS · Competitive Intelligence</div>
+      <h1>Battle cards</h1>
+      <p>Sales enablement dossiers, refreshed weekly. Structure mirrors the retired Klue export.</p>
+    </div>
+    <input class="search" id="search" type="text" placeholder="Filter competitors…">
+    <ul class="comp-list" id="compList"></ul>
+    <div class="refresh-note">
+      <b>To update:</b> edit <code>data.json</code> and redeploy. To add a competitor, append a new object to the <code>competitors</code> array — <code>{id, name, category, status:"pending"}</code> is enough to show it as queued; add a full <code>sections</code> object to mark it "ready."
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="sheet" id="sheet">
+      <div class="load-state" id="loadState">Loading data.json…</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let COMPETITORS = [];
+
+const SECTION_LABELS = [
+  {key:'approach', label:'Approach to market'},
+  {key:'top', label:'Top things to know'},
+  {key:'offerings', label:'Product offerings'},
+  {key:'claims', label:'Product claims'},
+  {key:'swot', label:'Strengths & weaknesses'},
+  {key:'tactics', label:'Sales tactics'},
+  {key:'reframe', label:'Changing the conversation'},
+];
+
+let activeId = null;
+
+function renderSidebar(filter){
+  const list = document.getElementById('compList');
+  list.innerHTML = '';
+  const f = (filter||'').trim().toLowerCase();
+  COMPETITORS.filter(c => c.name.toLowerCase().includes(f)).forEach(c => {
+    const li = document.createElement('li');
+    li.className = 'comp-tab' + (c.id===activeId ? ' active' : '');
+    li.innerHTML = `
+      <div>
+        <span class="comp-name">${c.name}</span>
+        <span class="comp-cat">${c.category}</span>
+      </div>
+      <span class="status-dot ${c.status}"></span>
+    `;
+    li.addEventListener('click', () => { activeId = c.id; renderSidebar(document.getElementById('search').value); renderSheet(); });
+    list.appendChild(li);
+  });
+}
+
+function pressureWord(n){
+  if(n>=5) return 'HIGH';
+  if(n>=3) return 'MODERATE';
+  if(n>=1) return 'LOW';
+  return 'N/A';
+}
+
+function renderSheet(){
+  const comp = COMPETITORS.find(c => c.id === activeId);
+  const sheet = document.getElementById('sheet');
+  if(!comp) return;
+
+  if(comp.status !== 'ready' || !comp.sections){
+    sheet.innerHTML = `
+      <div class="case-header">
+        <span class="tag">Pending research</span>
+        <span class="stamp">Not yet built</span>
+      </div>
+      <div class="paper">
+        <div class="comp-title-row">
+          <div>
+            <h1 class="comp-title">${comp.name}</h1>
+            <div class="comp-sub">${comp.category}</div>
+          </div>
+        </div>
+        <div class="pending-wrap">
+          <i>No card yet</i>
+          <p>This competitor is queued but hasn't been researched. Ask Claude to "build the ${comp.name} battle card," and paste in a Klue export if you have one so internal-only sections can be filled in rather than left blank. Once built, add a full <code>sections</code> object for this competitor in data.json and set <code>status</code> to <code>"ready"</code>.</p>
+          <ul class="pending-list">
+            ${SECTION_LABELS.map(s => `<li>${s.label}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const s = comp.sections;
+  sheet.innerHTML = `
+    <div class="case-header">
+      <span class="tag">SAS vs. ${comp.name}</span>
+      <span class="stamp">Last updated<br>${comp.lastUpdated || ''}</span>
+    </div>
+    <div class="paper">
+      <div class="comp-title-row">
+        <div>
+          <h1 class="comp-title">${comp.name}</h1>
+          <div class="comp-sub">${comp.category}</div>
+        </div>
+        <div class="pressure">
+          <div class="label">Competitive pressure</div>
+          <div class="segs">${[1,2,3,4,5].map(i => `<span class="seg ${comp.pressure && i<=comp.pressure?'on':''}"></span>`).join('')}</div>
+          <div class="word">${pressureWord(comp.pressure)}</div>
+        </div>
+      </div>
+      <p class="curator">${comp.curator || ''}</p>
+
+      <div class="layout">
+        <div class="toc" id="toc">
+          ${SECTION_LABELS.map((sec,i) => `<div class="toc-item ${i===0?'active':''}" data-target="sec-${sec.key}">${sec.label}</div>`).join('')}
+        </div>
+
+        <div class="content">
+          <div class="section" id="sec-approach">
+            <h2>Approach to market</h2>
+            <h3 class="sub">Background</h3>
+            <p>${s.background}</p>
+            <h3 class="sub">Mergers &amp; acquisitions (most recent)</h3>
+            <ul class="plainlist">${s.ma.map(m => `<li>${m.name} — ${m.date}${m.value? ' ('+m.value+')':''}</li>`).join('')}</ul>
+            <h3 class="sub">Market strategy</h3>
+            <p>${s.marketStrategy}</p>
+            <ol class="plainlist">${s.positioningEvolution.map(p => `<li>${p}</li>`).join('')}</ol>
+            <h3 class="sub">Customers</h3>
+            <div class="taglist">${s.customers.map(c => `<span>${c}</span>`).join('')}</div>
+            <h3 class="sub">Verticals served</h3>
+            <p>${s.verticals}</p>
+            <h3 class="sub">Partners</h3>
+            <p>${s.partners}</p>
+          </div>
+
+          <div class="section" id="sec-top">
+            <h2>Top things to know</h2>
+            <ul class="top3">
+              ${s.top.map((t,i) => `<li><span class="n">${i+1}</span><div class="body"><span>${t.point}</span><ul>${t.subs.map(x=>`<li>${x}</li>`).join('')}</ul></div></li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="section" id="sec-offerings">
+            <h2>Product offerings</h2>
+            <p>${s.offerings.overview}</p>
+            <div class="offer-grid">
+              ${s.offerings.items.map(o => `<div class="offer-card"><span class="name">${o.name}</span><span class="desc">${o.desc}</span></div>`).join('')}
+            </div>
+          </div>
+
+          <div class="section" id="sec-claims">
+            <h2>Product claims</h2>
+            <div class="view-pair">
+              <div class="view-box theirs"><h4>Their view</h4><ul>${s.claims.theirView.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+              <div class="view-box sas"><h4>SAS' view</h4><ul>${s.claims.sasView.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+            </div>
+            <h3 class="sub">Competing with ${s.claims.productRebuttal.product}</h3>
+            <div class="view-pair">
+              <div class="view-box theirs"><h4>Their view</h4><ul>${s.claims.productRebuttal.theirView.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+              <div class="view-box sas"><h4>SAS' view</h4><ul>${s.claims.productRebuttal.sasView.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+            </div>
+          </div>
+
+          <div class="section" id="sec-swot">
+            <h2>Strengths &amp; weaknesses</h2>
+            <p style="font-size:12.5px;color:var(--text-dim);">Comparative dimensions, called out the way the retired Klue card organized them:</p>
+            ${s.dimensions.map(d => `<div class="dim-row"><span class="dim-name">${d.name}</span><span class="dim-verdict ${d.verdict}">${d.verdict==='sas' ? 'SAS advantage' : comp.name + ' advantage'}</span></div>`).join('')}
+            <div class="sw-grid" style="margin-top:18px;">
+              <div class="sw-box strength"><h3>Strengths</h3><ul>${s.swot.strengths.map(x => `<li>${x}</li>`).join('')}</ul></div>
+              <div class="sw-box weak"><h3>Weaknesses</h3><ul>${s.swot.weaknesses.map(x => `<li>${x}</li>`).join('')}</ul></div>
+            </div>
+          </div>
+
+          <div class="section" id="sec-tactics">
+            <h2>Sales tactics</h2>
+            <h3 class="sub">Questions to ask, traps to set</h3>
+            ${s.tactics.questions.map(q => `<div class="qcard"><p class="q">"${q.q}"</p><p class="a">${q.a}</p></div>`).join('')}
+            <div class="need-box">
+              <span class="tag">${s.tactics.analystNote.tag}</span>
+              <p>${s.tactics.analystNote.text}</p>
+            </div>
+            <div class="tactic attack"><h4>Attack</h4><ul>${s.tactics.attack.map(x => `<li>${x}</li>`).join('')}</ul></div>
+            <div class="tactic defend"><h4>Defend</h4><ul>${s.tactics.defend.map(x => `<li>${x}</li>`).join('')}</ul></div>
+          </div>
+
+          <div class="section" id="sec-reframe">
+            <h2>Changing the conversation</h2>
+            <div class="reframe"><span class="kicker">Reframe</span><p>${s.reframe}</p></div>
+            <h3 class="sub">"Better together" messaging</h3>
+            <p>${s.betterTogether}</p>
+            <h3 class="sub">Trustworthy AI</h3>
+            <p>${s.trustworthyAI.definition}</p>
+            <p>${s.trustworthyAI.theirs}</p>
+            <p>${s.trustworthyAI.ours}</p>
+            <div class="need-box">
+              <span class="tag">Needs input — attach live links</span>
+              <ul class="need-list">${s.trustworthyAI.needsLinks.map(l => `<li>${l}</li>`).join('')}</ul>
+            </div>
+          </div>
+
+          <div class="changelog">
+            <div class="cl-label">Change log</div>
+            <ul>${(comp.changelog||[]).map(c => `<li><span class="cdate">${c.date}</span>${c.note}</li>`).join('')}</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const tocItems = sheet.querySelectorAll('.toc-item');
+  tocItems.forEach(item => {
+    item.addEventListener('click', () => {
+      document.getElementById(item.dataset.target).scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+  const sections = sheet.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        tocItems.forEach(i => i.classList.remove('active'));
+        const match = sheet.querySelector(`.toc-item[data-target="${entry.target.id}"]`);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -70% 0px'});
+  sections.forEach(sec => observer.observe(sec));
+}
+
+async function init(){
+  try{
+    const res = await fetch('./data.json', {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    COMPETITORS = data.competitors || [];
+    if(COMPETITORS.length === 0) throw new Error('data.json has no competitors');
+    activeId = COMPETITORS[0].id;
+    renderSidebar('');
+    renderSheet();
+    document.getElementById('search').addEventListener('input', (e) => renderSidebar(e.target.value));
+  }catch(err){
+    document.getElementById('sheet').innerHTML = `<div class="load-state error">Couldn't load data.json (${err.message}). Make sure it sits next to index.html and is valid JSON.</div>`;
+  }
+}
+init();
+</script>
+</body>
+</html>
