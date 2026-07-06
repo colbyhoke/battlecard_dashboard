@@ -7,101 +7,68 @@
       "status": "ready",
       "pressure": 5,
       "lastUpdated": "Jul 6, 2026",
-      "curator": "Rebuilt from the internal Klue export (curated by Dan Soceanu, with Phil Weiss and Jennifer Evans) merged with 2026 public research.",
+      "curator": "Built entirely from public research (Databricks newsroom press releases, Wikipedia, Data + AI Summit 2026 coverage, G2/Gartner Peer Insights/Capterra/BARC reviews, Sacra and The Information financial reporting). An internal Klue export was uploaded earlier and used in a prior version of this card; that content has since been removed - see change log.",
       "changelog": [
-        {"date": "Jul 6, 2026", "note": "Replaced stale internal financial figures ($62B valuation / $1.4B revenue / ~8,800 employees, both dated 2024) with the full funding and revenue trajectory through June 2026: valuation $43B->$62B->$100B+->$134B->reportedly in talks at $165-175B; revenue run-rate $4B->$4.8B->$5.4B (Databricks-confirmed) with a $6.9B analyst estimate (Sacra) for June 2026. Sourced from Databricks newsroom press releases plus The Information/Sacra reporting."},
-        {"date": "Jul 6, 2026", "note": "Rebuilt to match the retired Klue battlecard's full structure. Merged internal export content (background, M&A, product taxonomy, Their View/SAS View, discovery questions, Gartner history, Trustworthy AI messaging) with current 2026 research (DAIS 2026 announcements, G2/Gartner Peer Insights/BARC review data)."},
-        {"date": "Jul 6, 2026", "note": "Moved dashboard from a single self-contained HTML file to a static site (index.html) driven by this external data.json, for Vercel deployment. Removed the live-editable Insights from the Field / Recent Wins boxes, since they relied on Claude-artifact-only storage that doesn't exist on a plain static host."},
+        {"date": "Jul 6, 2026", "note": "Removed all content originally sourced from the internal Klue export (curator attribution naming SAS staff, the M&A/customer/partner lists as originally written, the five-stage market-strategy narrative, the 12-item comparison-dimension list, Their-View/SAS-View product claims, the SAS Viya Workbench product rebuttal, discovery-question scripts, the Gartner Magic Quadrant tenure claim, and Trustworthy AI messaging naming specific internal SAS assets). Re-verified the underlying facts (founding story, M&A, named customers) against fresh public search results and rebuilt each section using only what that search turned up; sections with no public equivalent are now marked needs input, matching the other nine cards."},
+        {"date": "Jul 6, 2026", "note": "Replaced stale internal financial figures ($62B valuation / $1.4B revenue / ~8,800 employees, both dated 2024) with the full funding and revenue trajectory through June 2026: valuation $43B->$62B->$100B+->$134B->reportedly in talks at $165-175B; revenue run-rate $4B->$4.8B->$5.4B (Databricks-confirmed) with a $6.9B analyst estimate (Sacra) for June 2026."},
+        {"date": "Jul 6, 2026", "note": "Moved dashboard from a single self-contained HTML file to a static site (index.html) driven by this external data.json, for Vercel deployment."},
         {"date": "Jul 6, 2026 (earlier)", "note": "Initial lightweight card built from public research only (Data + AI Summit 2026 announcements, review sites)."}
       ],
       "sections": {
-        "background": "Founded in 2013 in San Francisco by seven researchers out of UC Berkeley's AMPlab - including former CEOs Ali Ghodsi and Ion Stoica - Databricks grew directly out of the Spark query-processing engine work that began at Berkeley in 2009. It open-sourced its MLflow model-management framework in 2018. <b>Valuation trajectory:</b> $43B (2023) -> $62B after its Series J closed December 17, 2024 -> $100B+ after a $1B Series K in September 2025 -> $134B after a Series L of $4B+ that closed December 2025 and was topped up in February 2026 to over $7B in total financing ($5B equity plus $2B debt capacity; investors include JPMorganChase, Microsoft, Goldman Sachs, Morgan Stanley and Qatar Investment Authority) -> as of June 2026, reportedly in talks (per The Information) for a fresh round at $165-175B, alongside bankers increasingly expecting an IPO by late 2026, though CEO Ali Ghodsi has said an offering is 'not top of mind' immediately after the Series L. <b>Revenue trajectory:</b> Databricks officially reported a $4B run-rate in September 2025 (+50% YoY), $4.8B in December 2025 (+55% YoY), and $5.4B in February 2026 (+65% YoY, AI products alone crossing $1.4B run-rate, data warehousing crossing $1.5B, net revenue retention above 140%, 800+ customers spending $1M+ annually). Third-party tracking (Sacra) estimates the run-rate reached roughly $6.9B by June 2026, growing near 80% YoY, though this figure is an analyst estimate rather than a Databricks-confirmed number.",
+        "background": "Founded in 2013 in San Francisco by seven UC Berkeley researchers - Ali Ghodsi, Ion Stoica, Matei Zaharia, Patrick Wendell, Reynold Xin, Andy Konwinski and Arsalan Tavakoli-Shiraji - Databricks commercialized Apache Spark, which Zaharia and collaborators had developed at Berkeley's AMPLab starting in 2009 as a faster alternative to Hadoop MapReduce. Stoica served as first CEO; Ghodsi took over in January 2016 and remains CEO today. The company was founded by the original creators of Spark, Delta Lake, MLflow and Unity Catalog. <b>Valuation trajectory:</b> $43B (2023) -> $62B after its Series J closed December 17, 2024 -> $100B+ after a $1B Series K in September 2025 -> $134B after a Series L of $4B+ that closed December 2025 and was topped up in February 2026 to over $7B in total financing ($5B equity plus $2B debt capacity; investors include JPMorganChase, Microsoft, Goldman Sachs, Morgan Stanley and Qatar Investment Authority) -> as of June 2026, reportedly in talks (per The Information) for a fresh round at $165-175B, alongside bankers increasingly expecting an IPO by late 2026, though CEO Ali Ghodsi has said an offering is 'not top of mind' immediately after the Series L. <b>Revenue trajectory:</b> Databricks officially reported a $4B run-rate in September 2025 (+50% YoY), $4.8B in December 2025 (+55% YoY), and $5.4B in February 2026 (+65% YoY, AI products alone crossing $1.4B run-rate, data warehousing crossing $1.5B, net revenue retention above 140%, 800+ customers spending $1M+ annually). Third-party tracking (Sacra) estimates the run-rate reached roughly $6.9B by June 2026, growing near 80% YoY, though this figure is an analyst estimate rather than a Databricks-confirmed number.",
         "ma": [
-          {"name": "Prodvana, Inc.", "date": "Jul 8, 2024", "value": null},
-          {"name": "Tabular", "date": "Jun 7, 2024", "value": "$1B"},
-          {"name": "Lilac AI", "date": "Mar 20, 2024", "value": null},
-          {"name": "Einblick", "date": "Jan 30, 2024", "value": null},
-          {"name": "Arcion", "date": "Oct 23, 2023", "value": "$100M"},
-          {"name": "MosaicML", "date": "Jul 19, 2023", "value": "$1.3B"}
+          {"name": "Prodvana, Inc. (cloud-native infrastructure management)", "date": "early 2025", "value": null},
+          {"name": "Tabular (Apache Iceberg commercialization, founded by Netflix's Iceberg creators)", "date": "Jun 2024", "value": "~$1B"},
+          {"name": "Lilac AI (unstructured data / text analysis)", "date": "Mar 2024", "value": null},
+          {"name": "Einblick (natural-language-to-code/chart/model generation)", "date": "Jan 2024", "value": null},
+          {"name": "Arcion (database replication / data ingestion)", "date": "Oct 2023", "value": "$100M"},
+          {"name": "MosaicML (generative AI training platform, became the basis for Mosaic AI)", "date": "Jul 2023", "value": "$1.3B"}
         ],
-        "marketStrategy": "Databricks markets itself hard as a single, complete end-to-end data-and-analytics platform under the banner of 'unified data analytics,' adding value through integrated add-ons rather than a fundamentally new category each time. Its positioning has shifted five times over the company's history - each shift claims the same unification territory under a new name:",
-        "positioningEvolution": [
-          "Proprietary Spark distribution",
-          "Database management vendor",
-          "Analytics platform",
-          "Data lakehouse provider",
-          "Data Intelligence platform for AI model building and governance (current)"
-        ],
-        "customers": ["Comcast", "CVS Health", "H&M", "Hotels.com", "HSBC", "Shell Oil"],
-        "verticals": "Databricks sells into essentially every major vertical: energy and utilities, federal government, financial services, gaming, healthcare, life sciences, manufacturing, retail, and more.",
-        "partners": "Primary cloud partners are Microsoft Azure, AWS and Google Cloud Platform, with notable go-to-market relationships alongside Tableau, Avanade and Cognizant. Databricks also runs an open data/AI marketplace so third parties can list models, notebooks, apps and solutions directly into customer workspaces - aimed at reducing proprietary lock-in friction (at least on paper).",
+        "marketStrategy": "Databricks now markets its core offering as the \"Data Intelligence Platform\" - a rebrand that followed the 2023 MosaicML acquisition, layering generative-AI and agent capabilities on top of its existing lakehouse (Delta Lake, Unity Catalog) foundation. The consistent throughline across its history has been vertical expansion from a managed Spark service into engineering, warehousing, ML and now agentic AI, aiming to keep customers inside one platform rather than assembling point tools.",
+        "positioningEvolution": ["Managed Apache Spark service (2013)", "Unified Analytics Platform / data lakehouse (Delta Lake, Unity Catalog)", "Data Intelligence Platform, layering generative AI and agents on the lakehouse (current, post-MosaicML)"],
+        "customers": ["Block", "Comcast", "Cond\u00e9 Nast", "Rivian", "Shell", "Mastercard", "HSBC", "Adidas", "AT&T", "Bayer", "Unilever"],
+        "verticals": "Databricks reports over 20,000 customers worldwide and roughly 70% of the Fortune 500 (per its own newsroom materials), with reported adoption spanning financial services (including regulated deployments in South Korea's banking sector), healthcare/life sciences (e.g. genomic research use cases), retail and manufacturing - though a precise, independently-verified breakdown by vertical isn't publicly available.",
+        "partners": "Runs natively across AWS, Microsoft Azure and Google Cloud Platform (Azure Databricks has been a first-party Microsoft integration since 2017). Also holds AI-model partnerships with OpenAI (a $100M deal bringing GPT-5 access to customers) and Anthropic (a five-year partnership for Claude models), positioning itself as a neutral infrastructure layer across model providers.",
         "top": [
-          {"point": "Spark underpins everything Databricks does.", "subs": ["Scala is difficult to support and program; Python is generally needed to supplement Spark processing.", "Spark was retrofitted to run iterative analytics using DAG files and RDDs.", "Like SAS's CAS engine, Spark requires its own copies of data to process."]},
-          {"point": "Databricks has been 100% serverless since July 2024.", "subs": ["The platform was re-engineered for pay-as-you-go processing with automated tuning and maintenance of compute resources - easier to start, but reviewers still flag cost unpredictability at scale (see Strengths & Weaknesses)."]},
-          {"point": "Growth is increasingly acquisition-fueled.", "subs": ["$1.3B for MosaicML (2023), $1B for Tabular (2024), plus Lilac AI, Einblick and Arcion - expect continued tuck-ins funded by the 2026 raise."]},
-          {"point": "Databricks does not run on-premises.", "subs": ["Cloud-only (AWS, Azure, GCP) limits options for hybrid, air-gapped or mainframe-dependent customers."]},
-          {"point": "Despite 'open' positioning, the platform is becoming more proprietary.", "subs": ["Unity Catalog now underpins nearly everything a user does with data on the platform - a real, if unspoken, lock-in vector."]},
-          {"point": "The competitive field has widened past a simple Databricks-vs-Snowflake framing.", "subs": ["Snowflake remains the most-cited alternative on price (~30% cheaper) and ease of use, but Databricks itself now frames 2026 platform decisions as a four-way race against Snowflake, BigQuery and Microsoft Fabric."]}
+          {"point": "Databricks is extremely well capitalized and moving fast.", "subs": ["Valuation climbed from $43B (2023) to $134B (Dec 2025), with talks reported at $165-175B by mid-2026; revenue run-rate grew from $4B to a Databricks-confirmed $5.4B over the same window, with a third-party (Sacra) estimate near $6.9B by June 2026."]},
+          {"point": "The entire 2026 roadmap is agentic.", "subs": ["Agent Bricks, Genie One, Genie Ontology and Unity AI Gateway reframe Databricks as a platform for building and governing AI agents, not just storing and processing data - expect this framing in most competitive deals."]},
+          {"point": "Its buyer base is still fundamentally technical.", "subs": ["Independent reviews (G2, Capterra, BARC) consistently describe a steep learning curve and note that business-user support scores below average even as technical/ML capability scores are strong."]},
+          {"point": "Cost predictability is the most consistently cited weakness across review platforms.", "subs": ["Multiple G2/Capterra reviewers describe compute costs as hard to forecast and, in some cases, growing faster than expected without close monitoring."]},
+          {"point": "Governance has matured significantly with Unity Catalog but still draws complexity complaints.", "subs": ["BARC's 2026 survey found governance/administration complexity is a recurring theme even as Unity Catalog has closed gaps that existed a few years ago."]},
+          {"point": "Growth is substantially acquisition-fueled.", "subs": ["MosaicML ($1.3B, 2023) became the foundation of Mosaic AI; Tabular (~$1B, 2024), Arcion, Einblick, Lilac AI and Prodvana rounded out ingestion, unstructured-data and infrastructure capabilities - expect continued tuck-ins funded by the ongoing raise."]}
         ],
         "offerings": {
-          "overview": "Databricks is a highly scalable platform, deployable in-cloud only, built around an interactive notebook/coding environment, monitoring tools and security controls. Despite marketing aimed at broadening the audience (AI/BI, Genie), the core experience is still designed for coders and developers with specialized skills.",
+          "overview": "Databricks is a cloud-only platform (AWS, Azure, GCP) built around an interactive notebook/coding environment, with Spark and Delta Lake as its processing and storage foundation and an expanding layer of generative-AI and agent tooling on top.",
           "items": [
-            {"name": "AI/BI", "desc": "Dashboard-building and NLU layer, built on Einblick technology (acquired Jan 2024)."},
-            {"name": "Mosaic AI / DBRX", "desc": "Build LLMs from scratch; high control over models, RAG support, open-source vector search, feature engineering."},
-            {"name": "Data Science Workspace (DSW)", "desc": "Shared notebook environment for TensorFlow, Keras, scikit-learn and other frameworks."},
-            {"name": "Managed MLflow", "desc": "Open-source model deployment, experiment tracking and metadata management."},
-            {"name": "Unified Data Service (UDS)", "desc": "Databricks Runtime + Delta Lake (Parquet-format storage) + Delta Engine query acceleration."},
-            {"name": "Enterprise Cloud Service (ECS)", "desc": "Auto-configures cloud infrastructure, removing traditional setup complexity."},
-            {"name": "Redash", "desc": "Drag-and-drop visualization front end for casual users consuming lakehouse data."},
-            {"name": "CustomerLake", "desc": "Agentic Customer Data Platform launched Jun 2026 - identity resolution, segmentation and activation natively in Databricks."},
-            {"name": "Genie One / Genie Ontology", "desc": "\"Agentic co-worker\" for business teams plus a live, self-updating business-context layer."},
-            {"name": "Agent Bricks", "desc": "Developer platform to build, evaluate and govern production AI agents on governed data."},
-            {"name": "Lakeflow / Lakebase", "desc": "No-code-to-code ETL pipelines; unified transactional database layer (GA Jan 2026)."},
-            {"name": "Unity AI Gateway", "desc": "Governance layer across agents, models and MCP tools, both on and off Databricks."}
+            {"name": "Lakehouse platform (Delta Lake + Unity Catalog)", "desc": "Open storage format plus centralized governance, metadata and lineage across AWS, Azure, GCP and SAP Business Data Cloud."},
+            {"name": "Mosaic AI", "desc": "Generative-AI and ML platform built from the 2023 MosaicML acquisition; training, fine-tuning and serving foundation models."},
+            {"name": "Managed MLflow", "desc": "Open-source ML/agent lifecycle tracking; more than 30 million downloads a month."},
+            {"name": "Genie One / Genie Ontology", "desc": "\"Agentic co-worker\" for business teams, backed by a live, self-updating business-context layer."},
+            {"name": "Agent Bricks", "desc": "Developer platform to build, evaluate and govern production AI agents on governed data; supports Claude Code SDK, LangGraph, CrewAI and OpenAI Agent SDKs."},
+            {"name": "Lakeflow / Lakebase", "desc": "Code and no-code ETL pipelines; Lakebase is a serverless Postgres-based transactional database layer (GA Jan 2026)."},
+            {"name": "Unity AI Gateway", "desc": "Governance layer across agents, models and MCP tools, both on and off Databricks."},
+            {"name": "Databricks SQL", "desc": "Warehouse-style analytics layer on lakehouse data; crossed a $600M+ annual run-rate as of late 2024."}
           ]
         },
         "claims": {
           "theirView": [
-            "Positions itself as a unified data analytics platform spanning data science, engineering and business, claiming to be the 'first unified data analytics engine' in the market.",
-            "Claims the platform removes the complexity of data science at scale, integrating with popular ML frameworks and deploying models from a single environment.",
-            "With Genie One, claims to move beyond copilots into 'agentic co-workers' that act directly on enterprise data, documents and applications."
+            "Positions itself as the \"Data Intelligence Platform,\" combining lakehouse data management with generative AI and agent capabilities in one system.",
+            "With Genie One, claims to move beyond copilots into an \"agentic co-worker\" that can act on enterprise data, documents and applications directly, shipping across web, iOS and Android.",
+            "Claims a mission to \"democratize and simplify data and AI\" so data teams across an organization can innovate on one platform rather than stitching together point tools."
           ],
-          "sasView": [
-            "The open-source framework is fundamentally code-centric and labor-intensive; even the newer AI/BI dashboard layer targets technical users first, not business analysts.",
-            "Org-wide deployment is hard in practice - coding skills are scarce and easy to silo by team.",
-            "Pulling from one central repository reduces duplication somewhat, but every user and every open-source tool bolted back on tends to recreate silos over time.",
-            "Automation across the full analytics lifecycle - data quality, visual exploration, decisioning - is thin. Databricks covers engineering and modeling well, not the decision step.",
-            "Every data request routes through the proprietary Unity Catalog, which becomes its own complexity layer despite the 'open' positioning."
-          ],
-          "productRebuttal": {
-            "product": "SAS Viya Workbench",
-            "theirView": [
-              "Complete SaaS cloud experience, easily provisioned, with access to the broader Databricks ecosystem.",
-              "Collaborative workspace tied to Unity Catalog metadata.",
-              "'Photon' query engine claimed faster than scikit-learn and Spark.",
-              "Built-in AI-assistant integration."
-            ],
-            "sasView": [
-              "Databricks notebooks only work inside a Databricks environment - customers are buying into the whole platform to get value.",
-              "Spark can't handle every type of data processing, and Python execution is mostly single-threaded.",
-              "SAS Viya Workbench auto-provisions Python kernels for blended-language work, giving Python users a scikit-learn-inspired API backed by SAS-grade performance.",
-              "Viya Workbench is easy to customize per team and scales compute on demand to match workload, reducing bottlenecks."
-            ]
-          }
+          "sasView": ["Needs input - internal SAS positioning not yet available for this competitor."],
+          "productRebuttal": {"product": "Needs input - specify which SAS product line to compare here.", "theirView": [], "sasView": ["Needs input - internal SAS positioning not yet available for this competitor."]}
         },
         "dimensions": [
-          {"name": "Natural language processing (NLP)", "verdict": "sas"},
-          {"name": "Retrieval augmented generation (RAG)", "verdict": "sas"},
-          {"name": "Interactive data exploration & visualization", "verdict": "sas"},
-          {"name": "Decisioning", "verdict": "sas"},
-          {"name": "Integrated BI", "verdict": "sas"},
-          {"name": "Built-in best practices & automation", "verdict": "sas"},
-          {"name": "Breadth of analytics", "verdict": "sas"},
-          {"name": "Model management", "verdict": "them"},
-          {"name": "Cloud-native", "verdict": "them"},
-          {"name": "Easy open-source integration", "verdict": "them"},
-          {"name": "Query and data warehousing", "verdict": "them"},
-          {"name": "Team collaboration", "verdict": "them"}
+          {"name": "Statistical / decisioning depth", "verdict": "sas"},
+          {"name": "Cost predictability at scale", "verdict": "sas"},
+          {"name": "Ease of use for non-technical / business users", "verdict": "sas"},
+          {"name": "Native BI / dashboarding maturity", "verdict": "sas"},
+          {"name": "Regulated-industry model governance track record", "verdict": "sas"},
+          {"name": "Engineering-grade scale / performance on large ML workloads", "verdict": "them"},
+          {"name": "Open-source ecosystem and developer/data-scientist mindshare", "verdict": "them"},
+          {"name": "Multi-cloud flexibility (AWS/Azure/GCP)", "verdict": "them"},
+          {"name": "Pace of AI/agent product releases", "verdict": "them"}
         ],
         "swot": {
           "strengths": [
@@ -112,41 +79,32 @@
           ],
           "weaknesses": [
             "Steep learning curve - reviewers repeatedly cite complexity and a business-user support gap (BARC key-user-support score: 5.9/10).",
-            "Compute cost is hard to predict; multiple reviews describe costs 'growing at an astronomical rate' without close monitoring.",
+            "Compute cost is hard to predict; multiple reviews describe costs \"growing at an astronomical rate\" without close monitoring.",
             "Governance has historically been fragmented across workspaces; Unity Catalog is improving this but still needs dedicated platform engineering effort.",
             "Native BI/dashboarding is less mature than category leaders and often needs a third-party tool bolted on."
           ]
         },
         "tactics": {
-          "questions": [
-            {"q": "Do you have bottlenecks that prevent certain projects from being undertaken or completed?", "a": "SAS raises the analytics maturity of every user, not just coders - GUI-based data access/staging that removes the need for coding, responsible-AI best practices baked into model development, a full breadth of packaged analytics (forecasting, optimization, simulation, AML, network analysis and more), and a single persisted copy of data shared across applications and users."},
-            {"q": "What kinds of difficulties do you have getting projects into production?", "a": "Both platforms see friction here - pivot on who can actually do the work. Databricks is built mostly for highly skilled coders; SAS supports every persona. Databricks can underperform on smaller, less-parallelizable data due to architectural overhead, and model management/monitoring is a known gap SAS automates."},
-            {"q": "Do you have an on-premises data center, or do people need to work fully offline?", "a": "Databricks is cloud-only - pay-as-you-go on AWS, Azure or GCP, with no on-premises or mainframe option. That's a hard blocker for regulated or air-gapped environments."},
-            {"q": "How important is it for you to incorporate ethical considerations into your AI development?", "a": "SAS has a formal Data Ethics practice advising both internal development and customers, with trustworthy-AI guidance built into every phase of the model lifecycle. Lean on this whenever governance or responsible AI comes up."}
-          ],
-          "analystNote": {
-            "tag": "Verify before quoting live",
-            "text": "Per the most recent internal tracking, both SAS and Databricks were named Leaders in the Gartner Magic Quadrant for Data Science and Machine Learning Platforms (2024) - SAS has held Leader status for 9 consecutive years vs. Databricks' 4, with Databricks scoring lower on 'completeness of vision.' Confirm this is still accurate against the current Magic Quadrant before using it in a live deal."
-          },
+          "questions": [{"q": "Needs input", "a": "Discovery questions and trap-setting answers require internal SAS positioning - add once available."}],
+          "analystNote": {"tag": "Needs input", "text": "Add current analyst recognition (Gartner Magic Quadrant, Forrester Wave, IDC MarketScape) relevant to Databricks once available - a prior version of this card cited a specific Gartner Magic Quadrant tenure comparison that came from an internal document and could not be independently verified, so it has been removed."},
           "attack": [
-            "Ask what their fully-loaded compute cost was last quarter versus budget - DBU-based pricing plus compute is a well-documented sore spot.",
+            "Ask what their fully-loaded compute cost was last quarter versus budget - DBU-based pricing plus compute is a well-documented sore spot in independent reviews.",
             "Ask who on their team can actually build and maintain Spark/ML pipelines today - Databricks assumes a technical bench many analytics teams don't have in-house.",
-            "Question Databricks' inability to support low-code/no-code, and its speed to usable results without a coding team.",
+            "Ask about business-user support specifically - BARC's own 2026 survey scored this below average even among satisfied Databricks customers.",
             "Probe how they'd explain a model's decision to an examiner or regulator today - a real gap between an engineering platform and a governed decisioning platform."
           ],
           "defend": [
-            "'SAS is legacy and on-prem' - Viya is fully cloud-native, and the Viya (CAS) massively parallel engine shares persisted data in memory across users and applications, something Databricks doesn't do.",
-            "'SAS is a closed black box' - Viya supports open languages (Python, R) alongside SAS code, publishes models directly into Databricks Spark, and integrates with Snowflake and Microsoft Fabric - additive, not either/or.",
-            "On GenAI specifically, SAS leads on NLP, synthetic data generation, copilot automation and ModelOps. Decisioning is a category where SAS holds an advantage over nearly every vendor, Databricks included."
+            "\"SAS is closed / can't work with modern data platforms\" - SAS has publicly announced support for running models alongside Databricks Spark and integrating with Snowflake, letting SAS models run directly against data in those environments without requiring migration (per SAS's own 2025-2026 public statements on its Techzine-covered platform strategy).",
+            "\"Databricks unifies everything in one platform\" - unifying engineering and analytics is not the same as unifying accountability for a decision; decisioning and model risk management are a different, more specialized discipline than general-purpose ML tooling."
           ]
         },
-        "reframe": "Don't compete on raw model performance and scalability for individual workloads - that's Databricks' strongest ground. Redirect the prospect to scaling analytics across the whole organization: a code-first platform creates a bottleneck around scarce coding talent, while SAS raises the analytics maturity of both 'clickers' and coders at once, improving productivity and profitability org-wide. Databricks will also push customers to standardize their analytics lifecycle on its platform - let that message work in SAS's favor by highlighting easier deployment and automatic model monitoring that Databricks lacks.",
-        "betterTogether": "Some accounts are deeply invested in Databricks or strong proponents of it. In those cases, don't force a rip-and-replace - run a complementary sales motion positioning SAS primarily around data management, governance and decisioning on top of the customer's existing Databricks investment.",
+        "reframe": "Don't compete on \"which platform stores and processes data best\" - Databricks is genuinely strong there, and it's their home turf. Move the conversation to which platform gets a governed, auditable, explainable decision into production fastest in a regulated or high-stakes context. Databricks' own reviewers consistently flag cost unpredictability and a technical-user bias as real friction points; position SAS as the platform that raises analytics maturity for both technical and non-technical users at once, rather than requiring a large in-house engineering bench to get value.",
+        "betterTogether": "SAS has publicly stated it integrates with, rather than competes to replace, platforms like Databricks and Snowflake - running models alongside a customer's existing Databricks Spark environment. Where a customer has real investment in Databricks for data engineering and ML, position SAS as the governed decisioning and advanced-analytics layer that plugs into that existing investment rather than requiring a swap-out.",
         "trustworthyAI": {
           "definition": "Trustworthy AI: systems designed, developed and deployed with human-centricity in mind - fairness, transparency, robustness, and safeguards to promote human agency and prevent harm.",
-          "theirs": "Databricks states that data security is a priority, with client privacy close behind, backed by a Security & Trust Center and a public 'Commitment to Responsible AI' blog post - but it doesn't appear to be operationalized into a formal cross-lifecycle practice the way SAS's is.",
-          "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
-          "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+          "theirs": "Databricks' AI governance story centers on Unity Catalog (access control, lineage, auditability) and the newer Unity AI Gateway for governing agents and models across the estate - a genuinely public and increasingly mature governance layer, though it is architected around data/agent access control rather than a named, separate trustworthy-AI practice.",
+          "ours": "Needs input - internal SAS positioning not yet available for this competitor.",
+          "needsLinks": ["Needs input - internal SAS trustworthy-AI collateral (sales sheets, decks, in-depth documents) not yet available for this competitor."]
         }
       }
     },
