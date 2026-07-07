@@ -7,8 +7,10 @@
       "status": "ready",
       "pressure": 5,
       "lastUpdated": "Jul 6, 2026",
-      "curator": "Built entirely from public research (Databricks newsroom press releases, Wikipedia, Data + AI Summit 2026 coverage, G2/Gartner Peer Insights/Capterra/BARC reviews, Sacra and The Information financial reporting).",
+      "curator": "Built entirely from public research (Databricks newsroom press releases, Wikipedia, Data + AI Summit 2026 coverage, G2/Gartner Peer Insights/Capterra/BARC reviews, Sacra and The Information financial reporting). An internal Klue export was uploaded earlier and used in a prior version of this card; that content has since been removed - see change log.",
       "changelog": [
+        {"date": "Jul 6, 2026", "note": "Removed all content originally sourced from the internal Klue export (curator attribution naming SAS staff, the M&A/customer/partner lists as originally written, the five-stage market-strategy narrative, the 12-item comparison-dimension list, Their-View/SAS-View product claims, the SAS Viya Workbench product rebuttal, discovery-question scripts, the Gartner Magic Quadrant tenure claim, and Trustworthy AI messaging naming specific internal SAS assets). Re-verified the underlying facts (founding story, M&A, named customers) against fresh public search results and rebuilt each section using only what that search turned up; sections with no public equivalent are now marked needs input, matching the other nine cards."},
+        {"date": "Jul 6, 2026", "note": "Replaced stale internal financial figures ($62B valuation / $1.4B revenue / ~8,800 employees, both dated 2024) with the full funding and revenue trajectory through June 2026: valuation $43B->$62B->$100B+->$134B->reportedly in talks at $165-175B; revenue run-rate $4B->$4.8B->$5.4B (Databricks-confirmed) with a $6.9B analyst estimate (Sacra) for June 2026."},
         {"date": "Jul 6, 2026", "note": "Moved dashboard from a single self-contained HTML file to a static site (index.html) driven by this external data.json, for Vercel deployment."},
         {"date": "Jul 6, 2026 (earlier)", "note": "Initial lightweight card built from public research only (Data + AI Summit 2026 announcements, review sites)."}
       ],
@@ -30,8 +32,8 @@
         "top": [
           {"point": "Databricks is extremely well capitalized and moving fast.", "subs": ["Valuation climbed from $43B (2023) to $134B (Dec 2025), with talks reported at $165-175B by mid-2026; revenue run-rate grew from $4B to a Databricks-confirmed $5.4B over the same window, with a third-party (Sacra) estimate near $6.9B by June 2026."]},
           {"point": "The entire 2026 roadmap is agentic.", "subs": ["Agent Bricks, Genie One, Genie Ontology and Unity AI Gateway reframe Databricks as a platform for building and governing AI agents, not just storing and processing data - expect this framing in most competitive deals."]},
-          {"point": "Its buyer base is still fundamentally technical.", "subs": ["Independent reviews (G2, Capterra, BARC) consistently describe a steep learning curve and note that business-user support scores below average even as technical/ML capability scores are strong."]},
-          {"point": "Cost predictability is the most consistently cited weakness across review platforms.", "subs": ["Multiple G2/Capterra reviewers describe compute costs as hard to forecast and, in some cases, growing faster than expected without close monitoring."]},
+          {"point": "Its buyer base is still fundamentally technical.", "subs": ["Independent reviews (G2, Capterra, BARC) commonly describe a steep learning curve and note that business-user support scores below average even as technical/ML capability scores are strong."]},
+          {"point": "Cost predictability is a commonly cited weakness across review platforms.", "subs": ["Multiple G2/Capterra reviewers describe compute costs as hard to forecast and, in some cases, growing faster than expected without close monitoring. <span class=\"estimate\">(Directional - based on individual reviews, not a scored survey with a published methodology.)</span>"]},
           {"point": "Governance has matured significantly with Unity Catalog but still draws complexity complaints.", "subs": ["BARC's 2026 survey found governance/administration complexity is a recurring theme even as Unity Catalog has closed gaps that existed a few years ago."]},
           {"point": "Growth is substantially acquisition-fueled.", "subs": ["MosaicML ($1.3B, 2023) became the foundation of Mosaic AI; Tabular (~$1B, 2024), Arcion, Einblick, Lilac AI and Prodvana rounded out ingestion, unstructured-data and infrastructure capabilities - expect continued tuck-ins funded by the ongoing raise."]}
         ],
@@ -76,7 +78,7 @@
             "Genuinely multi-cloud, reducing hyperscaler lock-in concerns."
           ],
           "weaknesses": [
-            "Steep learning curve - reviewers repeatedly cite complexity and a business-user support gap (BARC key-user-support score: 5.9/10).",
+            "Steep learning curve - reviewers commonly cite complexity and a business-user support gap (BARC key-user-support score: 5.9/10, per BARC's Data Intelligence Platforms survey).",
             "Compute cost is hard to predict; multiple reviews describe costs \"growing at an astronomical rate\" without close monitoring.",
             "Governance has historically been fragmented across workspaces; Unity Catalog is improving this but still needs dedicated platform engineering effort.",
             "Native BI/dashboarding is less mature than category leaders and often needs a third-party tool bolted on."
@@ -96,13 +98,32 @@
             "\"Databricks unifies everything in one platform\" - unifying engineering and analytics is not the same as unifying accountability for a decision; decisioning and model risk management are a different, more specialized discipline than general-purpose ML tooling."
           ]
         },
-        "reframe": "Don't compete on \"which platform stores and processes data best\" - Databricks is genuinely strong there, and it's their home turf. Move the conversation to which platform gets a governed, auditable, explainable decision into production fastest in a regulated or high-stakes context. Databricks' own reviewers consistently flag cost unpredictability and a technical-user bias as real friction points; position SAS as the platform that raises analytics maturity for both technical and non-technical users at once, rather than requiring a large in-house engineering bench to get value.",
+        "reframe": "Don't compete on \"which platform stores and processes data best\" - Databricks is genuinely strong there, and it's their home turf. Move the conversation to which platform gets a governed, auditable, explainable decision into production fastest in a regulated or high-stakes context. Databricks' own reviewers commonly flag cost unpredictability and a technical-user bias as real friction points; position SAS as the platform that raises analytics maturity for both technical and non-technical users at once, rather than requiring a large in-house engineering bench to get value.",
         "betterTogether": "SAS has publicly stated it integrates with, rather than competes to replace, platforms like Databricks and Snowflake - running models alongside a customer's existing Databricks Spark environment. Where a customer has real investment in Databricks for data engineering and ML, position SAS as the governed decisioning and advanced-analytics layer that plugs into that existing investment rather than requiring a swap-out.",
         "trustworthyAI": {
           "definition": "Trustworthy AI: systems designed, developed and deployed with human-centricity in mind - fairness, transparency, robustness, and safeguards to promote human agency and prevent harm.",
           "theirs": "Databricks' AI governance story centers on Unity Catalog (access control, lineage, auditability) and the newer Unity AI Gateway for governing agents and models across the estate - a genuinely public and increasingly mature governance layer, though it is architected around data/agent access control rather than a named, separate trustworthy-AI practice.",
           "ours": "Needs input - internal SAS positioning not yet available for this competitor.",
           "needsLinks": ["Needs input - internal SAS trustworthy-AI collateral (sales sheets, decks, in-depth documents) not yet available for this competitor."]
+        },
+        "security": {
+          "summary": "No major publicly disclosed data breach or security incident specific to Databricks itself was found in this research pass. This is a negative result, not a confirmed clean record - worth re-checking periodically rather than treating as settled.",
+          "incidents": []
+        },
+        "analystCoverage": [
+          {"source": "Forrester Wave: Data Lakehouses, Q2 2024", "standing": "Leader (highest scores in Current Offering and Strategy)", "date": "Apr 30, 2024", "url": "https://www.databricks.com/resources/analyst-research/databricks-earns-leader-recognition-industry-analysts"},
+          {"source": "IDC MarketScape: Worldwide Data Platform Software 2025", "standing": "Leader", "date": "Jul 2025", "url": "https://www.databricks.com/resources/analyst-research/2025-idc-marketscape-worldwide-data-platforms"},
+          {"source": "IDC MarketScape: Worldwide Unified AI Governance Platforms 2025-2026", "standing": "Leader (highest Strategies score)", "date": "Dec 2025", "url": "https://www.databricks.com/blog/databricks-named-leader-idc-marketscape-worldwide-unified-ai-governance-platforms-2025-2026"}
+        ],
+        "pricing": {
+          "model": "Consumption-based, billed in Databricks Units (DBUs) - a normalized measure of processing power metered per second. There is no fixed subscription price list; total cost is DBU charges from Databricks plus a separate cloud infrastructure bill (compute/storage/networking) from AWS, Azure or GCP. Premium tier is now the practical floor - the Standard tier was sunset on AWS/GCP in October 2025 and is scheduled for Azure retirement in October 2026.",
+          "tiers": [
+            {"name": "Premium", "price": "~$0.08-$0.70 per DBU depending on workload type", "notes": "Includes Unity Catalog, RBAC, audit logging, serverless SQL, Photon - the default for most production deployments."},
+            {"name": "Enterprise", "price": "Custom / negotiated with sales, not publicly listed", "notes": "Roughly 15-25% above Premium per third-party pricing guides; adds HIPAA/FedRAMP-level compliance, enhanced security, dedicated support."}
+          ],
+          "sourceUrl": "https://www.databricks.com/product/pricing",
+          "sourceLabel": "Databricks pricing page",
+          "asOf": "2026, per Databricks' own pricing page and third-party DBU rate guides"
         }
       }
     },
@@ -122,7 +143,7 @@
         "top": [
           {"point": "Microsoft is simultaneously SAS's biggest platform partner and a growing analytics competitor.", "subs": ["SAS Decision Builder runs natively on Fabric and SAS is a Gold FABCON sponsor, even as Fabric/Power BI competes directly for BI and analytics budget."]},
           {"point": "Fabric's pitch is bundled simplicity, not best-of-breed depth.", "subs": ["It consolidates Synapse, Data Factory, Power BI and ADLS into one capacity-based SaaS subscription."]},
-          {"point": "Capacity-based (CU) pricing is hard to forecast.", "subs": ["Reviewers consistently flag throttling risk when usage exceeds the purchased tier, plus real FinOps/governance overhead to manage it well."]},
+          {"point": "Capacity-based (CU) pricing is hard to forecast.", "subs": ["Reviewers commonly flag throttling risk when usage exceeds the purchased tier, plus real FinOps/governance overhead to manage it well - BARC's own review data cites pricing complexity and TCO transparency as a named challenge area."]},
           {"point": "42% of Fabric buyers cite existing Microsoft incumbency as a material selection factor (BARC).", "subs": ["Often a default decision rather than a best-fit evaluation - a real opening in a competitive review."]},
           {"point": "Maturity gap: 37% of BARC-surveyed customers cite lack of internal know-how as a blocker to full value realization.", "subs": ["Independent reviewers still describe the platform as \"evolving,\" with governance/administration complexity increasing as adoption scales past a single team."]}
         ],
@@ -184,6 +205,28 @@
           "theirs": "Microsoft leans on Purview-backed governance and Responsible AI tooling embedded across Copilot and Fabric, with sensitivity labels and compliance controls enforced through OneLake - a strong data-governance story, less specific on model-level decision auditability.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "Microsoft as a corporate entity has disclosed two major nation-state security incidents in recent years. Neither is Fabric/Power BI-specific, but both are legitimate vendor-trust context for a company this deeply embedded in customer infrastructure.",
+          "incidents": [
+            {"date": "Jul 2023 (disclosed), reviewed Apr 2024", "description": "Storm-0558 (Chinese state-linked actor) forged authentication tokens to access Exchange Online mailboxes of ~25 organizations, including US government officials. A US Cyber Safety Review Board report called the intrusion preventable and cited multiple Microsoft security failures.", "url": "https://www.infosecurity-magazine.com/news/microsoft-security-failures/"},
+            {"date": "Jan 2024 (disclosed)", "description": "Midnight Blizzard (Russian state-sponsored actor, aka Nobelium/APT29) accessed Microsoft corporate email accounts of senior leadership and security staff via a legacy non-production test tenant lacking MFA, later using exfiltrated data to attempt access to source code repositories.", "url": "https://www.microsoft.com/en-us/msrc/blog/2024/01/microsoft-actions-following-attack-by-nation-state-actor-midnight-blizzard"}
+          ]
+        },
+        "analystCoverage": [
+          {"source": "Forrester Wave: Business Intelligence Platforms, Q2 2025", "standing": "Leader (highest score of any vendor in generative AI functionality; perfect score in 17 other criteria)", "date": "Apr 2025", "url": "https://powerbi.microsoft.com/en-us/blog/microsoft-named-a-leader-in-the-forrester-wave-business-intelligence-platforms-q2-2025/"},
+          {"source": "BARC Data & Analytics Survey (Fabric-specific results)", "standing": "Mixed: 42% cite existing Microsoft relationship as a selection factor (vs. 26% peer avg); 37% cite lack of know-how as a value-realization blocker (vs. 19% peer avg)", "date": "2026", "url": "https://barc.com/review/microsoft-data-fabric/"}
+        ],
+        "pricing": {
+          "model": "Capacity-based (Capacity Units/CUs), not per-seat, priced in F-SKUs from F2 (2 CUs) up to F2048 (2048 CUs). All Fabric workloads (Data Factory, Spark, Warehouse, Power BI) draw from one shared CU pool. F64 and above include Power BI viewer access without individual Pro licenses; below F64, viewers need a separate Power BI Pro (~$10/user/month) or Premium Per User license.",
+          "tiers": [
+            {"name": "F2 (entry)", "price": "~$262.80/month pay-as-you-go (~40% less on 1-year reserved)", "notes": "Requires individual Power BI Pro licenses for content viewers."},
+            {"name": "F64 (Power BI Premium-equivalent)", "price": "List-priced per Microsoft's F-SKU table; check current Azure pricing page", "notes": "Threshold where free/unlicensed viewer access kicks in."},
+            {"name": "F2048 (largest published SKU)", "price": "~$269,107.20/month pay-as-you-go", "notes": "OneLake storage billed separately, ~$0.023-$0.246/GB/month depending on tier."}
+          ],
+          "sourceUrl": "https://learn.microsoft.com/en-us/fabric/enterprise/licenses",
+          "sourceLabel": "Microsoft Fabric licensing documentation",
+          "asOf": "2026, per Microsoft Learn and third-party rate trackers - always verify current list prices directly before quoting"
         }
       }
     },
@@ -193,7 +236,7 @@
       "curator": "Built from public research (Snowflake Q4 FY2026 earnings coverage, Cortex AI product documentation, G2/Capterra reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
       "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
-        "background": "Snowflake (NYSE: SNOW) reported Q4 FY2026 revenue of $1.3B (+30% YoY), product revenue of $1.2B (+30% YoY), and remaining performance obligations of $9.8B (+42% YoY), with an 11% non-GAAP operating margin and 61% adjusted free-cash-flow margin. More than 9,100 customer accounts now use Snowflake's AI capabilities, and Snowflake Intelligence scaled to 2,500+ accounts within three months of launch. The company has broadened well beyond its cloud-data-warehouse roots into a full \"AI Data Cloud,\" adding Snowflake Postgres (via the Crunchy Data acquisition) for transactional workloads and acquiring Observe for observability/IT operations in FY2026.",
+        "background": "Snowflake (NYSE: SNOW) reported <a href=\"https://www.snowflake.com/en/news/press-releases/snowflake-reports-financial-results-for-the-fourth-quarter-and-full-year-of-fiscal-2026/\" target=\"_blank\">Q4 FY2026 results</a> (quarter ended Jan 31, 2026; reported Feb 25, 2026) of $1.28B total revenue, $1.23B product revenue (+30% YoY), remaining performance obligations of $9.77B (+42% YoY), 11% non-GAAP operating margin and 61% non-GAAP adjusted free-cash-flow margin. As of that same report, more than 9,100 accounts used Snowflake's AI capabilities, and Snowflake Intelligence had scaled to roughly 2,500 accounts within three months of its launch. <span class=\"asof\">Note: these figures are current as of Q4 FY2026 and will be superseded once Q1 FY2027 results are reported.</span> The company has broadened beyond its cloud-data-warehouse roots into a self-described \"AI Data Cloud,\" adding Snowflake Postgres (via the Crunchy Data acquisition) for transactional workloads and acquiring Observe for observability/IT operations, both disclosed in the same Q4 FY2026 release.",
         "ma": [{"name": "Observe", "date": "FY2026", "value": null}, {"name": "Crunchy Data", "date": "2025", "value": null}],
         "marketStrategy": "Snowflake's strategy has evolved from \"cloud data warehouse\" to \"AI Data Cloud\" - bringing AI and LLMs to governed data rather than moving data out to external AI services, monetized through a new AI-credit billing layer alongside standard compute/storage credits.",
         "positioningEvolution": ["Cloud data warehouse (SQL-native, separates storage/compute)", "Data Cloud / data-sharing marketplace", "AI Data Cloud with Cortex AI, agents and Snowflake Intelligence (current)"],
@@ -263,6 +306,25 @@
           "theirs": "Snowflake emphasizes that every AI interaction runs inside its governed security perimeter with role-based access and audit-ready explainability (Cortex Guard for safety), positioning trust as an architectural property of \"AI at the data\" rather than a separate compliance layer.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "Snowflake was at the center of one of 2024's largest cloud data breaches. Snowflake's own infrastructure was not directly compromised - the campaign exploited customer accounts that lacked multi-factor authentication, using credentials stolen via unrelated infostealer malware. Still, it's a legitimate, widely-reported vendor-trust talking point given the scale and how many household-name victims it produced.",
+          "incidents": [
+            {"date": "Apr-Jun 2024 (disclosed May 23, 2024)", "description": "Threat actor UNC5537 (aka ShinyHunters) used stolen credentials to access ~165+ Snowflake customer accounts lacking MFA, exfiltrating data later used for extortion. Confirmed victims include AT&T (~109M customer call/text records), Ticketmaster/Live Nation (560M records), Santander Bank, Neiman Marcus, Advance Auto Parts and others. Mandiant's investigation found no evidence Snowflake's own platform was breached.", "url": "https://en.wikipedia.org/wiki/Snowflake_data_breach"}
+          ]
+        },
+        "analystCoverage": [],
+        "pricing": {
+          "model": "Consumption-based, billed in Snowflake credits (compute) plus separate per-TB storage charges. Credit price depends on edition, cloud provider and region; billed per-second with a 60-second minimum per warehouse resume. No permanent free tier - new accounts get a 30-day trial with $400 in credits.",
+          "tiers": [
+            {"name": "Standard", "price": "~$2.00/credit (US East, on-demand baseline)", "notes": "Core warehousing, single-cluster, 1-day Time Travel."},
+            {"name": "Enterprise", "price": "~$3.00/credit", "notes": "Adds multi-cluster warehouses, materialized views, up to 90-day Time Travel."},
+            {"name": "Business Critical", "price": "~$4.00/credit", "notes": "HIPAA/PCI-DSS-oriented; customer-managed encryption keys, private connectivity, failover/failback."},
+            {"name": "Virtual Private Snowflake (VPS)", "price": "Custom / contact sales", "notes": "Fully isolated single-tenant deployment."}
+          ],
+          "sourceUrl": "https://www.snowflake.com/en/pricing-options/",
+          "sourceLabel": "Snowflake's own pricing page",
+          "asOf": "2026, per Snowflake's published edition pricing and third-party rate trackers - non-US regions and capacity commitments materially change the effective rate"
         }
       }
     },
@@ -339,6 +401,23 @@
           "theirs": "Alteryx's public messaging centers on \"AI-ready data\" and responsible automation at enterprise scale, without a named formal trustworthy-AI or model-governance practice comparable to SAS's.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "No major publicly disclosed data breach or security incident specific to Alteryx was found in this research pass. Negative result, not a confirmed clean record.",
+          "incidents": []
+        },
+        "analystCoverage": [
+          {"source": "Alteryx's own marketing cites coverage across Gartner, IDC, Forrester, Dresner and BARC evaluations", "standing": "Vendor-stated, not independently itemized per report in this pass - verify specific standings before quoting", "date": "2026", "url": "https://www.alteryx.com/"}
+        ],
+        "pricing": {
+          "model": "Per-user annual licensing, quote-based (Alteryx does not publish a full price list; annual commitment required, no monthly billing). Independent buyer-side estimates put typical costs well above comparable data-prep tools.",
+          "tiers": [
+            {"name": "Designer (entry)", "price": "~$4,950/user/year (buyer-reported starting point)", "notes": "Core data prep/blending; predictive modeling, automation and cloud access cost extra."},
+            {"name": "Larger team / enterprise", "price": "Reported range up to $50,000-$80,000+/year depending on users and modules", "notes": "Alteryx has no native visualization - budget separately for a BI tool (Tableau/Power BI) on top."}
+          ],
+          "sourceUrl": "https://mammoth.io/blog/alteryx-pricing/",
+          "sourceLabel": "third-party Alteryx pricing analysis (buyer-reported figures, not Alteryx's own published list)",
+          "asOf": "2026 - Alteryx pricing is not publicly listed; treat these as directional estimates and confirm with a current quote"
         }
       }
     },
@@ -348,15 +427,15 @@
       "curator": "Built from public research (Thoma Bravo/Qlik press releases, G2/Gartner/TrustRadius reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
       "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
-        "background": "Qlik was taken private by Thoma Bravo in a $3B deal in 2016. It acquired Talend in 2023 (itself a former Thoma Bravo portfolio company, originally bought for $2.4B), merging BI/analytics with data integration, quality and governance into one portfolio. In November 2024, Qlik closed a significant minority investment from ADIA (Abu Dhabi Investment Authority) alongside continued Thoma Bravo ownership, underscoring investor confidence in the combined analytics-plus-data-integration strategy. Qlik serves 40,000+ customers and has historically been named a Gartner Magic Quadrant Leader for BI and Analytics Platforms for 12+ consecutive years.",
+        "background": "Qlik was taken private by Thoma Bravo in a $3B deal in 2016. It acquired Talend in 2023 (itself a former Thoma Bravo portfolio company, originally bought for $2.4B), merging BI/analytics with data integration, quality and governance into one portfolio. In November 2024, Qlik closed a significant minority investment from ADIA (Abu Dhabi Investment Authority) alongside continued Thoma Bravo ownership. Qlik was named a Leader in the <a href=\"https://www.qlik.com/us/news/company/press-room/press-releases/qlik-named-a-leader-for-the-16th-consecutive-year-in-2026-gartner-magic-quadrant-for-analytics-and-business-intelligence-platforms\" target=\"_blank\">2026 Gartner Magic Quadrant for Analytics and Business Intelligence Platforms</a> for the 16th consecutive year (announced Jun 29, 2026), and states it is used by 75% of the Fortune 500 as of that same release. <span class=\"estimate\">The 40,000+ customer figure previously shown here was an earlier estimate and has been removed pending a sourced count.</span>",
         "ma": [{"name": "Talend", "date": "2023", "value": "$2.4B (from Thoma Bravo portfolio)"}, {"name": "Attunity", "date": "2019", "value": null}, {"name": "Podium Data", "date": "2019", "value": null}, {"name": "Crunchbot (NLP)", "date": null, "value": null}, {"name": "Blendr.io", "date": null, "value": null}],
         "marketStrategy": "Qlik's long-standing differentiator is its \"associative engine,\" letting users explore data relationships freely rather than through pre-defined query paths. Post-Talend, the strategy expanded to \"end-to-end data integration, quality, analytics and AI,\" aiming to own the full pipeline from raw data to governed insight, not just the visualization layer.",
         "positioningEvolution": ["QlikView: associative BI engine (1993 onward)", "Qlik Sense: modern self-service analytics (2014)", "End-to-end data integration + analytics platform (post-Talend, 2023-present)"],
-        "customers": ["40,000+ active customers across 100+ countries"],
+        "customers": ["75% of the Fortune 500 (per Qlik's 2026 Gartner press release)"],
         "verticals": "Financial services (risk/compliance/fraud detection), healthcare (patient/clinical outcomes), manufacturing, telecom (network/customer analytics), retail/logistics.",
         "partners": "Cloud-neutral across AWS, Azure and GCP; broad SI/reseller network built around Talend's prior enterprise integration relationships.",
         "top": [
-          {"point": "Qlik's associative engine genuinely does something most query-based BI tools don't.", "subs": ["It lets analysts explore any relationship in the data without pre-built drill paths - but it comes at real cost: pricing runs 10-20x Power BI's per-user cost at typical scale."]},
+          {"point": "Qlik's associative engine genuinely does something most query-based BI tools don't.", "subs": ["It lets analysts explore any relationship in the data without pre-built drill paths - though it comes at a real cost: several buyer-side comparisons put its per-user pricing well above Power BI's at typical scale. <span class=\"estimate\">(Estimated from third-party pricing comparisons, not a Qlik-published figure - treat as directional, not exact.)</span>"]},
           {"point": "The Talend acquisition (2023) turned Qlik into an end-to-end data integration + analytics + governance vendor.", "subs": ["This directly overlaps with parts of what SAS Viya plus SAS data management already do - now a broader platform conversation, not just a BI tool comparison."]},
           {"point": "Qlik has been private under Thoma Bravo since 2016, with a fresh ADIA minority investment in November 2024.", "subs": ["Financially well-capitalized, but private ownership means less visibility into standalone financial performance."]},
           {"point": "In-memory architecture makes Qlik extremely fast for interactive exploration.", "subs": ["It requires proportionally large server memory (roughly 150-200GB RAM per 500GB dataset on-prem) - a real infrastructure cost buyers often underestimate."]},
@@ -402,7 +481,7 @@
           "questions": [{"q": "Needs input", "a": "Discovery questions and trap-setting answers require internal SAS positioning - add once available."}],
           "analystNote": {"tag": "Needs input", "text": "Add current analyst recognition (Gartner Magic Quadrant, Forrester Wave, IDC MarketScape) relevant to Qlik once available."},
           "attack": [
-            "Ask what their current per-user cost is at full rollout scale - Qlik commonly runs 10-20x Power BI's cost for equivalent seat counts.",
+            "Ask what their current per-user cost is at full rollout scale - buyer-side comparisons commonly put Qlik's cost well above Power BI's for equivalent seat counts, though verify current figures before quoting a specific multiple live.",
             "Ask about server memory requirements if they're considering on-prem deployment - the in-memory model needs real infrastructure investment most buyers underestimate.",
             "If they're still on QlikView, ask about their migration timeline and plan - the move to Qlik Sense is reportedly a significant rework."
           ],
@@ -418,6 +497,25 @@
           "theirs": "Qlik's public AI messaging emphasizes \"trustworthy, explainable predictive AI\" specifically through Qlik Predict, with governance framed primarily around its data integration/quality layer (via Talend) rather than a distinct, named model-risk-management practice.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "No major publicly disclosed data breach or security incident specific to Qlik was found in this research pass. Negative result, not a confirmed clean record.",
+          "incidents": []
+        },
+        "analystCoverage": [
+          {"source": "Gartner Magic Quadrant for Analytics and Business Intelligence Platforms", "standing": "Leader, 16th consecutive year", "date": "Jun 29, 2026", "url": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-named-a-leader-for-the-16th-consecutive-year-in-2026-gartner-magic-quadrant-for-analytics-and-business-intelligence-platforms"}
+        ],
+        "pricing": {
+          "model": "Since March 31, 2025, Qlik Cloud uses capacity-based pricing for all new subscriptions - you pay for data volume/consumption (\"Value Meters\"), not per user, with unlimited users possible within capacity limits (except the Starter tier). Legacy per-user contracts still run for existing customers. On-premise/legacy Qlik Sense also still uses user-based and token-based licensing.",
+          "tiers": [
+            {"name": "Qlik Sense Business (entry, per-user legacy)", "price": "$30/user/month, billed annually", "notes": "Per Qlik's own published pricing page."},
+            {"name": "Qlik Cloud Standard (capacity-based)", "price": "~$2,700-$5,500+/month depending on tier", "notes": "Flat per-tier price regardless of user count; overage billed for up to 10x purchased capacity."},
+            {"name": "Qlik Cloud Premium", "price": "Custom quote", "notes": "Adds AI-powered and predictive analytics on top of Standard."},
+            {"name": "Enterprise / on-premise", "price": "Custom quote, professional users commonly $70-$150/month legacy per-seat", "notes": "Reviewers note pricing is inflexible and among the more expensive BI platforms at small scale."}
+          ],
+          "sourceUrl": "https://www.qlik.com/us/pricing",
+          "sourceLabel": "Qlik's own pricing page",
+          "asOf": "2026, per Qlik's published pricing and third-party rate guides - confirm which licensing model (capacity vs. legacy per-user) applies to a given prospect"
         }
       }
     },
@@ -427,7 +525,7 @@
       "curator": "Built from public research (Salesforce/Tableau product announcements, G2/Research.com reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
       "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
-        "background": "Tableau operates as a business unit of Salesforce (acquired in 2019 for roughly $15.7B) and has spent the last two years pivoting toward \"Tableau Next,\" described as the first agentic analytics platform, built on Salesforce's Agentforce/Hyperforce architecture with Data 360 as its unified data layer. Tableau Next reached general availability progressively through 2025-2026 and became available to ISVs for embedding in April 2026. Pricing shifted in 2025 from consumption-based (Flex credits) to role-based licensing specifically to make budgeting more predictable.",
+        "background": "Tableau operates as a business unit of Salesforce (acquired in 2019 for roughly $15.7B) and has spent the last two years pivoting toward \"Tableau Next,\" described as the first agentic analytics platform, built on Salesforce's Agentforce/Hyperforce architecture with Data 360 as its unified data layer. Tableau Next reached general availability progressively through 2025-2026 and became available to ISVs for embedding in April 2026. Per <a href=\"https://www.tableau.com/pricing\" target=\"_blank\">Tableau's own pricing FAQ</a> (updated May 2026), Tableau Next pricing is now role-based, eliminating the consumption-based (Flex-credit) pricing that previously applied to data queries, data transforms and agentic analytics - <span class=\"estimate\">framing this as a deliberate move toward budgeting predictability is our interpretation, not a stated reason in Tableau's own materials.</span>",
         "ma": [{"name": "Tableau acquired by Salesforce", "date": "2019", "value": "~$15.7B"}],
         "marketStrategy": "Tableau's strategy has shifted from \"best-in-class standalone visualization tool\" to \"the analytics intelligence layer for any AI agent in the Salesforce ecosystem.\" Tableau Next is positioned not as a product upgrade but as a full architectural reimagining for the agentic era, tightly coupled to Agentforce and Data 360.",
         "positioningEvolution": ["Standalone best-in-class data visualization tool (pre-2019)", "Salesforce-owned BI platform, pivot to Tableau Cloud", "Tableau Next: agentic analytics platform on Agentforce/Hyperforce (current)"],
@@ -436,9 +534,9 @@
         "partners": "Native integration with Agentforce, Slack, and Salesforce's broader Data 360 ecosystem; connects to external warehouses (Snowflake, BigQuery, Redshift, Databricks) without necessarily duplicating data.",
         "top": [
           {"point": "Tableau Next is a genuine architectural bet, not just a rebrand.", "subs": ["Built on Salesforce's Agentforce/Hyperforce stack with Data 360 as the unified semantic layer, positioned as the analytics layer for any AI agent, not just Tableau's own front end."]},
-          {"point": "Classic Tableau (Cloud/Server) remains the product most prospects have actually used.", "subs": ["Reviewers consistently flag performance degradation on very large datasets/live connections and a steep learning curve for calculated fields and LOD expressions."]},
+          {"point": "Classic Tableau (Cloud/Server) remains the product most prospects have actually used.", "subs": ["Reviewers commonly flag performance degradation on very large datasets/live connections and a steep learning curve for calculated fields and LOD expressions."]},
           {"point": "Licensing cost is a persistent, top-cited complaint.", "subs": ["Creator licenses run around $75/user/month; small/mid-market buyers frequently cite switching to or considering Power BI for cost reasons."]},
-          {"point": "Tableau Next pricing moved to role-based licensing in 2025 specifically to fix consumption-cost unpredictability.", "subs": ["Worth confirming whether a prospect evaluating Next has been quoted role-based pricing or is still comparing against legacy Flex-credit assumptions."]},
+          {"point": "Tableau Next pricing moved to role-based licensing in 2025, replacing consumption-based Flex credits.", "subs": ["Tableau's own pricing FAQ confirms the shift away from consumption pricing for queries, transforms and agentic analytics - worth confirming whether a prospect evaluating Next has been quoted role-based pricing or is still comparing against legacy Flex-credit assumptions."]},
           {"point": "Some GenAI features pull from replicated Data Cloud copies rather than the live source of truth.", "subs": ["Meaning \"AI insights\" can be generated from potentially stale data unless the architecture is set up carefully."]}
         ],
         "offerings": {
@@ -495,6 +593,28 @@
           "theirs": "Salesforce's public positioning for Tableau Next emphasizes trust architecturally - built on Hyperforce with enterprise-grade security/compliance and a governed Data 360 semantic layer - but the trust narrative centers on data/agent governance within the Salesforce ecosystem rather than statistical model risk management specifically.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "No Tableau-specific breach was found, but Tableau sits inside the Salesforce ecosystem, which had a significant third-party incident in 2025 worth knowing as vendor-trust context.",
+          "incidents": [
+            {"date": "Aug 2025 (disclosed)", "description": "Threat actor UNC6395 used stolen OAuth tokens from the Salesloft Drift integration to exfiltrate data from numerous corporate Salesforce instances (Cases, Accounts, Users, Opportunities objects). Google's Threat Intelligence Group confirmed this was not a vulnerability in core Salesforce, but affected organizations using the Drift integration broadly across the Salesforce ecosystem.", "url": "https://cloud.google.com/blog/topics/threat-intelligence/data-theft-salesforce-instances-via-salesloft-drift"}
+          ]
+        },
+        "analystCoverage": [
+          {"source": "Forrester Wave: Augmented Business Intelligence Platforms, Q2 2025 (Tableau's direct competitor Power BI was named Leader here - Tableau's own standing in this specific report was not confirmed in this research pass)", "standing": "Not independently confirmed in this pass - verify before quoting", "date": "Q2 2025", "url": null}
+        ],
+        "pricing": {
+          "model": "Per-user role-based licensing (Creator/Explorer/Viewer) for classic Tableau Cloud/Server, billed annually. Tableau Next/Tableau+ is a separate premium bundle layered on top, priced through a Salesforce account team with a consumption-based credit model for its agentic features - no public list price.",
+          "tiers": [
+            {"name": "Viewer (Standard)", "price": "$15/user/month", "notes": "View-only access to published dashboards."},
+            {"name": "Explorer (Standard)", "price": "$42/user/month", "notes": "Can interact with and edit existing dashboards."},
+            {"name": "Creator (Standard)", "price": "$75/user/month", "notes": "Full authoring; at least one Creator license required per deployment."},
+            {"name": "Enterprise tier (same roles)", "price": "Viewer $35 / Explorer $70 / Creator $115 per user/month", "notes": "Most mid-to-large orgs land here once they need governance, Pulse, or advanced admin controls."},
+            {"name": "Tableau+ / Tableau Next", "price": "Custom, consumption-credit based - not publicly listed", "notes": "Layers on Tableau Next, Agentforce analytics (Concierge, Data Pro, Inspector), and Tableau Semantics."}
+          ],
+          "sourceUrl": "https://www.tableau.com/pricing",
+          "sourceLabel": "Tableau's own pricing page",
+          "asOf": "2026, per Tableau's published pricing - note an Enterprise/Unlimited list-price increase took effect Aug 2025, plus typical annual escalators of 5-7%"
         }
       }
     },
@@ -514,7 +634,7 @@
         "top": [
           {"point": "IBM's central pitch is \"glass box\" trustworthy AI.", "subs": ["watsonx.governance is explicitly built to counter the \"black box\" critique of other AI platforms - directly overlapping with SAS's own trustworthy-AI positioning."]},
           {"point": "IBM just closed the Confluent acquisition (Q1 2026) to stream governed, real-time data to models and agents.", "subs": ["A direct architectural answer to the same \"AI needs live, governed data\" problem SAS, Databricks and Snowflake are all solving differently."]},
-          {"point": "Cognos Analytics consistently draws complexity and performance complaints.", "subs": ["G2/Gartner reviewers repeatedly cite a steep learning curve and slow performance on large datasets/complex reports, a long-standing, still-unresolved pattern."]},
+          {"point": "Cognos Analytics commonly draws complexity and performance complaints.", "subs": ["G2/Gartner reviewers commonly cite a steep learning curve and slow performance on large datasets/complex reports, a long-standing pattern that shows up across multiple review cycles."]},
           {"point": "IBM is embedding agentic AI directly into legacy, decades-old products (Db2, Cognos, MQ \"AI editions\").", "subs": ["A hybrid-modernization narrative aimed squarely at large, long-tenured enterprise accounts - like many SAS customers - that don't want to rip out existing infrastructure."]},
           {"point": "Across watsonx.ai, watsonx.data and Cognos, the consistent independent-review theme is the same.", "subs": ["Powerful and enterprise-grade, but complex, expensive, and demanding of specialized skills to configure and operate well."]}
         ],
@@ -558,22 +678,42 @@
           "questions": [{"q": "Needs input", "a": "Discovery questions and trap-setting answers require internal SAS positioning - add once available."}],
           "analystNote": {"tag": "Needs input", "text": "Add current analyst recognition (Gartner Magic Quadrant, Forrester Wave, IDC MarketScape) relevant to IBM watsonx/Cognos once available."},
           "attack": [
-            "Ask how long it took (or is expected to take) to get watsonx.governance fully configured and trusted by risk/compliance stakeholders - reviewers consistently cite a steep learning curve and heavy setup effort.",
+            "Ask how long it took (or is expected to take) to get watsonx.governance fully configured and trusted by risk/compliance stakeholders - reviewers commonly cite a steep learning curve and heavy setup effort.",
             "Ask about Cognos Analytics performance on their largest, most complex reports today - slow performance with large datasets is a repeated, long-standing complaint.",
-            "Ask who internally has the specialized skills to run watsonx day-to-day - G2 reviewers repeatedly flag it as \"too enterprise-oriented\" for teams without dedicated AI/ML expertise."
+            "Ask who internally has the specialized skills to run watsonx day-to-day - G2 reviewers commonly flag it as \"too enterprise-oriented\" for teams without dedicated AI/ML expertise."
           ],
           "defend": [
             "\"IBM already solved the black-box problem\" - IBM's governance framing is real, but SAS has a substantially longer track record specifically in regulated, auditable decisioning (not just model explainability) across banking, insurance and government.",
             "\"We already run IBM everywhere\" - hybrid/mainframe depth doesn't automatically mean IBM is the best fit for advanced statistical modeling or packaged vertical analytics; SAS can sit alongside existing IBM infrastructure rather than requiring displacement."
           ]
         },
-        "reframe": "Don't compete with IBM on hybrid-cloud/mainframe integration or brand trust with conservative IT buyers - that's genuinely IBM's turf. Reframe around ease of use and time-to-value: IBM's own users consistently describe watsonx and Cognos as powerful but complex and slow to configure; SAS should lean into being the faster, easier path to the same governed, regulated outcome IBM is also chasing.",
+        "reframe": "Don't compete with IBM on hybrid-cloud/mainframe integration or brand trust with conservative IT buyers - that's genuinely IBM's turf. Reframe around ease of use and time-to-value: IBM's own users commonly describe watsonx and Cognos as powerful but complex and slow to configure; SAS should lean into being the faster, easier path to the same governed, regulated outcome IBM is also chasing.",
         "betterTogether": "In deeply IBM-committed accounts (mainframe, Db2, Red Hat), position SAS as a faster-to-deploy analytics and decisioning layer that can run alongside IBM's infrastructure rather than pitching a full IBM-out displacement, which is a much harder sell on IBM's home turf.",
         "trustworthyAI": {
           "definition": "Trustworthy AI: systems designed, developed and deployed with human-centricity in mind - fairness, transparency, robustness, and safeguards to promote human agency and prevent harm.",
           "theirs": "IBM's watsonx.governance is explicitly built and marketed as a \"glass box\" answer to AI black-box concerns, with model tracking, explainability and compliance controls as a first-class product rather than an add-on - arguably the most directly comparable trustworthy-AI narrative to SAS's own among all competitors tracked here.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "No major publicly disclosed data breach or security incident specific to IBM's watsonx/Cognos analytics business was found in this research pass. Negative result, not a confirmed clean record.",
+          "incidents": []
+        },
+        "analystCoverage": [
+          {"source": "IDC MarketScape: Worldwide Business Intelligence and Analytics Platforms 2025 Vendor Assessment", "standing": "Leader (Cognos Analytics)", "date": "Jul 2025 (doc #US52034725e)", "url": "https://www.ibm.com/new/announcements/ibm-named-a-leader-in-the-2025-idc-marketscape-for-business-intelligence-and-analytics-platforms"},
+          {"source": "IDC MarketScape: Worldwide Enterprise Planning, Budgeting, and Forecasting Applications 2026", "standing": "Leader (Planning Analytics)", "date": "Jan 2026 (doc #US52978625e)", "url": "https://www.ibm.com/new/announcements/ibm-named-a-leader-in-the-2026-idc-marketscape-for-enterprise-pl"}
+        ],
+        "pricing": {
+          "model": "Consumption-based across the watsonx portfolio. watsonx.ai bills foundation model inference in Resource Units (RU = 1,000 tokens, input + output combined) plus hourly Capacity Unit Hours (CUH) for training/scoring; watsonx.data bills per vCPU-core-hour plus per-GB. Cognos Analytics has separate cloud subscription pricing.",
+          "tiers": [
+            {"name": "watsonx.ai Lite", "price": "Free (limited capacity)", "notes": "For evaluation only; no foundation model tuning experiments."},
+            {"name": "watsonx.ai Standard", "price": "$1,110/month instance fee, includes 2,500 CUH; overage metered pay-as-you-go", "notes": "High-capacity enterprise plan; instance fee billed regardless of usage."},
+            {"name": "watsonx.ai HIPAA-Ready", "price": "Custom, Dallas region only", "notes": "Adds safeguards for regulated health data under a BAA with IBM."},
+            {"name": "IBM-hosted foundation models (pay-as-you-go)", "price": "From $0.10 per million tokens (IBM/third-party models)", "notes": "Third-party models (Meta, Google, Mistral, DeepSeek) also available; Mistral commercial models add separate GPU hosting + access fees."}
+          ],
+          "sourceUrl": "https://www.ibm.com/products/watsonx-ai/pricing",
+          "sourceLabel": "IBM's own watsonx.ai pricing page",
+          "asOf": "2026, per IBM's published pricing - Cognos Analytics pricing is listed separately and was not itemized in this pass"
         }
       }
     },
@@ -594,7 +734,7 @@
           {"point": "TIBCO's future is now tied to Cloud Software Group, the heavily leveraged 2022 merger of TIBCO and Citrix under Vista/Elliott.", "subs": ["The merger required billions in acquisition debt, and analysts at the time questioned whether TIBCO and Citrix have any obvious technology synergy."]},
           {"point": "TIBCO's own analysts have historically acknowledged that integrating its acquisitions took years.", "subs": ["Spotfire in particular took years to find its place in the portfolio - the same integration challenge likely applies to any deeper Citrix/TIBCO product work going forward."]},
           {"point": "Spotfire's real strength is real-time streaming and IoT-heavy visual analytics (MQTT, OSI PI, Kafka sources).", "subs": ["A narrower use case than SAS's full analytics-to-decision lifecycle; reviewers note thin native support for true statistical analysis versus purpose-built statistics tools."]},
-          {"point": "Reviewers consistently rate Spotfire's initial setup and personalization as difficult.", "subs": ["With slow data loading and comparatively immature handling of live/real-time data versus its own marketing claims."]},
+          {"point": "Reviewers commonly rate Spotfire's initial setup and personalization as difficult.", "subs": ["With slow data loading and comparatively immature handling of live/real-time data versus its own marketing claims."]},
           {"point": "TIBCO's ModelOps offering targets the same deployment-at-scale problem SAS's model management already solves.", "subs": ["But with a much smaller footprint and less mature ecosystem, having shipped after a lengthy preview period."]}
         ],
         "offerings": {
@@ -636,7 +776,7 @@
           "analystNote": {"tag": "Needs input", "text": "Add current analyst recognition (Gartner Magic Quadrant, Forrester Wave, IDC MarketScape) relevant to TIBCO once available."},
           "attack": [
             "Ask how TIBCO's product roadmap and support have been affected by the 2022 Citrix merger and the resulting Cloud Software Group structure - a fair, factual vendor-viability question given the scale of the combined entity's debt load.",
-            "Ask about their experience with Spotfire's setup/personalization process - independent reviews consistently flag this as difficult and time-consuming.",
+            "Ask about their experience with Spotfire's setup/personalization process - independent reviews commonly flag this as difficult and time-consuming.",
             "Ask how TIBCO handles governed, auditable decisioning beyond visual analytics - its ModelOps offering is comparatively new and less proven than SAS's model management lineage."
           ],
           "defend": [
@@ -651,6 +791,22 @@
           "theirs": "TIBCO's public AI/governance messaging is comparatively thin next to SAS, Databricks, Snowflake and IBM - its ModelOps positioning focuses on deployment and monitoring at scale rather than a named, formal trustworthy-AI or responsible-AI practice.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "No major publicly disclosed data breach or security incident specific to TIBCO/Spotfire was found in this research pass. Negative result, not a confirmed clean record.",
+          "incidents": []
+        },
+        "analystCoverage": [
+          {"source": "Forrester Wave: Master Data Management, Q2 2023", "standing": "Leader (TIBCO EBX - master data management, not Spotfire itself)", "date": "Q2 2023", "url": "https://leadiq.com/c/tibco-spotfire/5a1d987e2300005a008730fd"}
+        ],
+        "pricing": {
+          "model": "Named-user licensing with volume-based tiers; TIBCO does not publish a price list, and quotes require direct sales contact. Both subscription and perpetual licensing options exist. Reviewers note the named-user model gets expensive fast at scale, with limited volume discounting reported by some accounts.",
+          "tiers": [
+            {"name": "Named-user license (typical)", "price": "Custom quote - reviewers report contracts can range broadly, with third-party data (Vendr) citing observed deals up to ~$1,170,000", "notes": "Historically sold as annual terms; some accounts report being pushed toward 3-year commitments."}
+          ],
+          "sourceUrl": "https://www.oneio.cloud/blog/what-is-tibco-and-how-does-it-work",
+          "sourceLabel": "third-party TIBCO overview citing Vendr pricing data (not TIBCO's own published list)",
+          "asOf": "2026 - TIBCO pricing is not publicly listed; treat as directional and confirm via current quote"
         }
       }
     },
@@ -726,6 +882,21 @@
           "theirs": "DataRobot's trust narrative centers on explainability features baked into AutoML (SHAP, bias detection) and compliance credentials (FedRAMP, NIST) for regulated and federal buyers, rather than a broader, named enterprise-wide trustworthy-AI practice comparable to SAS's or IBM's.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "No major publicly disclosed data breach or security incident specific to DataRobot was found in this research pass. Negative result, not a confirmed clean record - and given the valuation/financial concerns already documented elsewhere in this card, vendor-viability diligence is still warranted.",
+          "incidents": []
+        },
+        "analystCoverage": [
+          {"source": "Gartner Magic Quadrant for Data Science and Machine Learning Platforms", "standing": "Leader, 3rd consecutive year (Ability to Execute and Completeness of Vision)", "date": "Jun 22, 2026", "url": "https://www.datarobot.com/resources/2026-gartner-magic-quadrant-for-data-science-and-machine-learning-platforms/"},
+          {"source": "Gartner Peer Insights \"Voice of the Customer\": Data Science and Machine Learning Platforms", "standing": "Customers' Choice", "date": "Nov 2024", "url": "https://www.datarobot.com/resources/2026-gartner-magic-quadrant-for-data-science-and-machine-learning-platforms/"}
+        ],
+        "pricing": {
+          "model": "No public price list. Sold via negotiated enterprise contracts, bundled in bulk increments (e.g. \"workers\"/production keys purchased as a block rather than metered individually) - consistent with reviewer complaints already noted in this card about pricing inflexibility.",
+          "tiers": [],
+          "sourceUrl": null,
+          "sourceLabel": null,
+          "asOf": "No additional public pricing detail found beyond what's already documented in Strengths & Weaknesses/Top Things to Know - confirm current terms directly with DataRobot sales"
         }
       }
     },
@@ -786,7 +957,7 @@
           "questions": [{"q": "Needs input", "a": "Discovery questions and trap-setting answers require internal SAS positioning - add once available."}],
           "analystNote": {"tag": "Needs input", "text": "Add current analyst recognition (Gartner Magic Quadrant, Forrester Wave, IDC MarketScape) relevant to Dataiku once available."},
           "attack": [
-            "Ask about performance at their actual data scale - slow performance with large datasets/complex workflows is one of the most consistently repeated complaints across review platforms.",
+            "Ask about performance at their actual data scale - slow performance with large datasets/complex workflows is a commonly repeated complaint across review platforms.",
             "Ask how they're budgeting for Dataiku given that pricing is frequently cited as hard to justify below a certain team size or use-case complexity.",
             "Ask how Dataiku's LLM Mesh governance compares to a purpose-built, regulated decisioning platform when the output is a high-stakes business decision, not just a chat response."
           ],
@@ -802,6 +973,26 @@
           "theirs": "Dataiku's trust story centers on the LLM Mesh's governance layer - policy enforcement, usage limits, spend monitoring and audit trails at the LLM connection layer - plus Agent Guard Services for evaluating agent reliability and business alignment, a genuinely modern and credible architecture, though focused on AI/agent governance rather than statistical model risk management specifically.",
           "ours": "SAS's approach embeds fairness and oversight at every step of the AI and analytics journey: robust data governance, transparent AI, and secure ModelOps processes.",
           "needsLinks": ["Trustworthy AI Sales Central Spot", "Trustworthy AI Across the AI & Analytics Life Cycle handout", "Trustworthy AI customer presentation", "SAS Viya Trustworthy AI in-depth document"]
+        },
+        "security": {
+          "summary": "No major publicly disclosed data breach or security incident specific to Dataiku was found in this research pass. Negative result, not a confirmed clean record.",
+          "incidents": []
+        },
+        "analystCoverage": [
+          {"source": "Gartner Magic Quadrant for AI Platforms for Data Science and ML", "standing": "Leader, 5th consecutive year (recognized for both Completeness of Vision and Ability to Execute)", "date": "2026", "url": "https://www.dataiku.com/"},
+          {"source": "IDC MarketScape: Worldwide Unified AI Governance Platforms 2025-2026 Vendor Assessment", "standing": "Leader", "date": "Dec 2025 (doc #US53514825)", "url": "https://www.dataiku.com/stories/detail/industry-analyst-recognition/"},
+          {"source": "Gartner Critical Capabilities for Data Science and ML Platforms, Core Data Science", "standing": "Ranked #1 for the Product Owner Use Case", "date": "Jun 2025", "url": "https://www.dataiku.com/stories/detail/industry-analyst-recognition/"},
+          {"source": "Gartner Peer Insights", "standing": "Customers' Choice; 4.8/5 rating from 288 reviews, 96% willingness to recommend", "date": "as of Sep 30, 2024", "url": "https://www.dataiku.com/stories/detail/industry-analyst-recognition/"}
+        ],
+        "pricing": {
+          "model": "No public price list - sold via negotiated enterprise contracts, typically scoped by number of designers/users and compute. A free Community Edition exists for individual/small-scale use.",
+          "tiers": [
+            {"name": "Community Edition", "price": "Free", "notes": "Full-featured for individuals; not intended for team/production deployment."},
+            {"name": "Enterprise / Business", "price": "Custom quote - not publicly listed", "notes": "Reviewers (including non-English-language G2/Gartner feedback) specifically cite \"preço elevado\" (high price) as a drawback."}
+          ],
+          "sourceUrl": null,
+          "sourceLabel": null,
+          "asOf": "No public list pricing found beyond the free Community Edition - confirm current enterprise terms directly with Dataiku sales"
         }
       }
     }

@@ -70,6 +70,10 @@
   .section h2::before{content:'';width:5px;height:5px;background:var(--attack);border-radius:50%;flex-shrink:0;}
   .section h3.sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin:20px 0 8px;}
   .section p{font-size:14px;line-height:1.7;color:var(--text-dark);margin:0 0 10px;}
+  .section a, .view-box a, .tactic a, .qcard a, .sw-box a{color:var(--attack);text-decoration:underline;text-decoration-color:var(--paper-line-strong);text-underline-offset:2px;}
+  .section a:hover, .view-box a:hover, .tactic a:hover, .qcard a:hover, .sw-box a:hover{text-decoration-color:var(--attack);}
+  .estimate{font-style:italic;color:var(--text-dim);}
+  .asof{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-dim);}
   .plainlist{margin:0 0 6px;padding-left:18px;display:flex;flex-direction:column;gap:5px;}
   .plainlist li{font-size:13.5px;line-height:1.6;color:var(--text-dark);}
   .taglist{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px;}
@@ -198,6 +202,9 @@ const SECTION_LABELS = [
   {key:'swot', label:'Strengths & weaknesses'},
   {key:'tactics', label:'Sales tactics'},
   {key:'reframe', label:'Changing the conversation'},
+  {key:'security', label:'Security & incidents'},
+  {key:'analysts', label:'Analyst coverage'},
+  {key:'pricing', label:'Pricing snapshot'},
 ];
 
 let activeId = null;
@@ -226,6 +233,14 @@ function pressureWord(n){
   if(n>=3) return 'MODERATE';
   if(n>=1) return 'LOW';
   return 'N/A';
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function link(url, label){
+  if(!url) return esc(label);
+  return '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>';
 }
 
 function renderSheet(){
@@ -364,6 +379,30 @@ function renderSheet(){
               <span class="tag">Needs input — attach live links</span>
               <ul class="need-list">${s.trustworthyAI.needsLinks.map(l => `<li>${l}</li>`).join('')}</ul>
             </div>
+          </div>
+
+          <div class="section" id="sec-security">
+            <h2>Security &amp; incidents</h2>
+            ${s.security ? `
+              <p>${esc(s.security.summary)}</p>
+              ${(s.security.incidents && s.security.incidents.length) ? `<ul class="plainlist">${s.security.incidents.map(i => `<li><span class="asof">${esc(i.date)}</span> - ${esc(i.description)} ${i.url ? link(i.url,'(source)') : ''}</li>`).join('')}</ul>` : ''}
+            ` : `<p class="estimate">No security/incident research recorded yet for this competitor.</p>`}
+          </div>
+
+          <div class="section" id="sec-analysts">
+            <h2>Analyst coverage</h2>
+            ${(s.analystCoverage && s.analystCoverage.length) ? `
+              <ul class="plainlist">${s.analystCoverage.map(a => `<li>${link(a.url, a.source)} - <b>${esc(a.standing)}</b> <span class="asof">(${esc(a.date)})</span></li>`).join('')}</ul>
+            ` : `<p class="estimate">No analyst coverage beyond Gartner recorded yet for this competitor.</p>`}
+          </div>
+
+          <div class="section" id="sec-pricing">
+            <h2>Pricing snapshot</h2>
+            ${s.pricing ? `
+              <p>${esc(s.pricing.model)}</p>
+              ${(s.pricing.tiers && s.pricing.tiers.length) ? `<div class="offer-grid">${s.pricing.tiers.map(t => `<div class="offer-card"><span class="name">${esc(t.name)}</span><span class="desc">${esc(t.price)}${t.notes ? ' - ' + esc(t.notes) : ''}</span></div>`).join('')}</div>` : ''}
+              ${s.pricing.sourceUrl ? `<p class="asof">Source: ${link(s.pricing.sourceUrl, s.pricing.sourceLabel || 'pricing page')}${s.pricing.asOf ? ' (as of ' + esc(s.pricing.asOf) + ')' : ''}</p>` : (s.pricing.asOf ? `<p class="asof">${esc(s.pricing.asOf)}</p>` : '')}
+            ` : `<p class="estimate">No public pricing information recorded yet for this competitor.</p>`}
           </div>
 
           <div class="changelog">
