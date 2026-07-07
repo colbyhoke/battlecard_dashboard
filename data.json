@@ -6,9 +6,10 @@
       "category": "Lakehouse / agentic AI platform",
       "status": "ready",
       "pressure": 5,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built entirely from public research (Databricks newsroom press releases, Wikipedia, Data + AI Summit 2026 coverage, G2/Gartner Peer Insights/Capterra/BARC reviews, Sacra and The Information financial reporting). An internal Klue export was uploaded earlier and used in a prior version of this card; that content has since been removed - see change log.",
       "changelog": [
+        {"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations (Forrester Wave, IDC MarketScape, Databricks' own pricing page)."},
         {"date": "Jul 6, 2026", "note": "Removed all content originally sourced from the internal Klue export (curator attribution naming SAS staff, the M&A/customer/partner lists as originally written, the five-stage market-strategy narrative, the 12-item comparison-dimension list, Their-View/SAS-View product claims, the SAS Viya Workbench product rebuttal, discovery-question scripts, the Gartner Magic Quadrant tenure claim, and Trustworthy AI messaging naming specific internal SAS assets). Re-verified the underlying facts (founding story, M&A, named customers) against fresh public search results and rebuilt each section using only what that search turned up; sections with no public equivalent are now marked needs input, matching the other nine cards."},
         {"date": "Jul 6, 2026", "note": "Replaced stale internal financial figures ($62B valuation / $1.4B revenue / ~8,800 employees, both dated 2024) with the full funding and revenue trajectory through June 2026: valuation $43B->$62B->$100B+->$134B->reportedly in talks at $165-175B; revenue run-rate $4B->$4.8B->$5.4B (Databricks-confirmed) with a $6.9B analyst estimate (Sacra) for June 2026."},
         {"date": "Jul 6, 2026", "note": "Moved dashboard from a single self-contained HTML file to a static site (index.html) driven by this external data.json, for Vercel deployment."},
@@ -129,9 +130,9 @@
     },
     {
       "id": "microsoft", "name": "Microsoft", "category": "Fabric / Power BI / Azure AI", "status": "ready", "pressure": 5,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (Microsoft Fabric documentation, G2/Gartner/BARC reviews, SAS-Microsoft partnership announcements). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "Microsoft Fabric launched in May 2023, consolidating Azure Synapse Analytics, Azure Data Factory, Power BI and Azure Data Lake Storage into a single SaaS analytics platform built on OneLake. Microsoft is simultaneously one of SAS's most important go-to-market partners - SAS is a Gold sponsor at Microsoft's own FABCON conference, and SAS Decision Builder runs natively on Fabric via the Microsoft Marketplace - and a growing analytics competitor through Fabric and Power BI.",
         "ma": [],
@@ -232,9 +233,9 @@
     },
     {
       "id": "snowflake", "name": "Snowflake", "category": "Cloud data platform / AI Data Cloud", "status": "ready", "pressure": 4,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (Snowflake Q4 FY2026 earnings coverage, Cortex AI product documentation, G2/Capterra reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "Snowflake (NYSE: SNOW) reported <a href=\"https://www.snowflake.com/en/news/press-releases/snowflake-reports-financial-results-for-the-fourth-quarter-and-full-year-of-fiscal-2026/\" target=\"_blank\">Q4 FY2026 results</a> (quarter ended Jan 31, 2026; reported Feb 25, 2026) of $1.28B total revenue, $1.23B product revenue (+30% YoY), remaining performance obligations of $9.77B (+42% YoY), 11% non-GAAP operating margin and 61% non-GAAP adjusted free-cash-flow margin. As of that same report, more than 9,100 accounts used Snowflake's AI capabilities, and Snowflake Intelligence had scaled to roughly 2,500 accounts within three months of its launch. <span class=\"asof\">Note: these figures are current as of Q4 FY2026 and will be superseded once Q1 FY2027 results are reported.</span> The company has broadened beyond its cloud-data-warehouse roots into a self-described \"AI Data Cloud,\" adding Snowflake Postgres (via the Crunchy Data acquisition) for transactional workloads and acquiring Observe for observability/IT operations, both disclosed in the same Q4 FY2026 release.",
         "ma": [{"name": "Observe", "date": "FY2026", "value": null}, {"name": "Crunchy Data", "date": "2025", "value": null}],
@@ -330,9 +331,9 @@
     },
     {
       "id": "alteryx", "name": "Alteryx", "category": "Data prep / analytics automation", "status": "ready", "pressure": 3,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (Alteryx investor/press coverage, G2/Gartner/Capterra reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "Alteryx went private in March 2024 in a $4.4B take-private by Clearlake Capital and Insight Partners, ending its run as a public company amid slowing growth (down from 75% YoY in Q4 2022 to under 8% by Q3 2023). Prior to the buyout, 2023 revenue was roughly $970M with a GAAP net loss of $179M and sales & marketing spend around 60% of revenue - a growth profile public markets had stopped rewarding. Under Clearlake/Insight ownership, Alteryx has pushed hard into \"Alteryx One,\" its unified AI-guided analytics platform, reporting it surpassed $1B in ARR in March 2026 alongside 380M+ automated workflows annually and an expanded Google Cloud partnership.",
         "ma": [{"name": "Trifacta", "date": "2022", "value": "$400M"}, {"name": "Hyper Anna", "date": "2021", "value": null}, {"name": "Lore IO", "date": "2021", "value": null}, {"name": "Feature Labs", "date": "2019", "value": null}, {"name": "ClearStory Data", "date": "2019", "value": "$19.6M"}, {"name": "Semanta", "date": "2017", "value": null}],
@@ -423,9 +424,9 @@
     },
     {
       "id": "qlik", "name": "Qlik", "category": "BI / data integration", "status": "ready", "pressure": 3,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (Thoma Bravo/Qlik press releases, G2/Gartner/TrustRadius reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "Qlik was taken private by Thoma Bravo in a $3B deal in 2016. It acquired Talend in 2023 (itself a former Thoma Bravo portfolio company, originally bought for $2.4B), merging BI/analytics with data integration, quality and governance into one portfolio. In November 2024, Qlik closed a significant minority investment from ADIA (Abu Dhabi Investment Authority) alongside continued Thoma Bravo ownership. Qlik was named a Leader in the <a href=\"https://www.qlik.com/us/news/company/press-room/press-releases/qlik-named-a-leader-for-the-16th-consecutive-year-in-2026-gartner-magic-quadrant-for-analytics-and-business-intelligence-platforms\" target=\"_blank\">2026 Gartner Magic Quadrant for Analytics and Business Intelligence Platforms</a> for the 16th consecutive year (announced Jun 29, 2026), and states it is used by 75% of the Fortune 500 as of that same release. <span class=\"estimate\">The 40,000+ customer figure previously shown here was an earlier estimate and has been removed pending a sourced count.</span>",
         "ma": [{"name": "Talend", "date": "2023", "value": "$2.4B (from Thoma Bravo portfolio)"}, {"name": "Attunity", "date": "2019", "value": null}, {"name": "Podium Data", "date": "2019", "value": null}, {"name": "Crunchbot (NLP)", "date": null, "value": null}, {"name": "Blendr.io", "date": null, "value": null}],
@@ -521,9 +522,9 @@
     },
     {
       "id": "tableau", "name": "Tableau", "category": "BI / visual analytics (Salesforce)", "status": "ready", "pressure": 3,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (Salesforce/Tableau product announcements, G2/Research.com reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "Tableau operates as a business unit of Salesforce (acquired in 2019 for roughly $15.7B) and has spent the last two years pivoting toward \"Tableau Next,\" described as the first agentic analytics platform, built on Salesforce's Agentforce/Hyperforce architecture with Data 360 as its unified data layer. Tableau Next reached general availability progressively through 2025-2026 and became available to ISVs for embedding in April 2026. Per <a href=\"https://www.tableau.com/pricing\" target=\"_blank\">Tableau's own pricing FAQ</a> (updated May 2026), Tableau Next pricing is now role-based, eliminating the consumption-based (Flex-credit) pricing that previously applied to data queries, data transforms and agentic analytics - <span class=\"estimate\">framing this as a deliberate move toward budgeting predictability is our interpretation, not a stated reason in Tableau's own materials.</span>",
         "ma": [{"name": "Tableau acquired by Salesforce", "date": "2019", "value": "~$15.7B"}],
@@ -620,9 +621,9 @@
     },
     {
       "id": "ibm", "name": "IBM", "category": "watsonx / Cognos", "status": "ready", "pressure": 4,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (IBM Q1 2026 earnings calls, watsonx/Cognos documentation, G2/BARC reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "IBM reported Q1 2026 revenue growth of 6% at constant currency, with diluted operating EPS up 19% year-over-year; full-year 2026 guidance commits to more than 5% constant-currency revenue growth and $1B of incremental free cash flow. IBM's AI strategy centers on watsonx (watsonx.ai for model building, watsonx.governance for explainability/compliance, watsonx.data as a governed lakehouse), reinforced by the Q1 2026 acquisition of Confluent for real-time, governed data streaming to models and agents. IBM has also shipped \"AI editions\" of legacy software including Db2, Cognos and MQ, embedding agentic capabilities directly into decades-old enterprise products, and continues to tie AI monetization to its mainframe business (z17 MIPS growth cited as accelerated by watsonx Code Assistant for Z usage).",
         "ma": [{"name": "Confluent", "date": "Q1 2026", "value": null}, {"name": "Cognos", "date": "2007-2008", "value": null}],
@@ -719,9 +720,9 @@
     },
     {
       "id": "tibco", "name": "TIBCO", "category": "Analytics / data integration (Cloud Software Group)", "status": "ready", "pressure": 2,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (Vista Equity/Cloud Software Group press coverage, G2/PeerSpot reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "TIBCO was founded in 1997 and taken private by Vista Equity Partners for roughly $4.2-4.3B in December 2014. In 2022, Vista and Elliott Investment Management's Evergreen Coast Capital merged TIBCO with the newly acquired Citrix Systems ($16.5B deal) to form Cloud Software Group, serving a combined 400,000+ customers and 98% of the Fortune 500. TIBCO's analytics business (built around Spotfire, acquired in 2007, and Information Builders/IBI, acquired 2021) now operates as a business unit within this larger, heavily leveraged private-equity structure rather than as an independently focused analytics company.",
         "ma": [{"name": "Spotfire", "date": "2007", "value": "$195M"}, {"name": "Information Builders (IBI)", "date": "2021", "value": null}, {"name": "StreamBase Systems", "date": "2013", "value": null}, {"name": "Orchestra Networks", "date": "2018", "value": null}, {"name": "Citrix merger (forming Cloud Software Group)", "date": "2022", "value": "$16.5B deal"}],
@@ -812,9 +813,9 @@
     },
     {
       "id": "datarobot", "name": "DataRobot", "category": "Enterprise AI / MLOps", "status": "ready", "pressure": 3,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (Sacra financial analysis, G2/Gartner reviews, CheckThat.ai review synthesis). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "DataRobot has raised roughly $1.05-1.3B across 12 funding rounds, reaching a $6.3B valuation at its July 2021 Series G. That valuation has not held: third-party fund marks from Franklin Templeton and BlackRock in late 2025/early 2026 imply the company is now worth only a small fraction of that peak - BlackRock's Series F position was marked at roughly 28% of its original cost basis. No further financing valuation has been publicly announced since 2021, and the last disclosed revenue figure was over $100M ARR with \"high double-digit growth\" as of November 2020 - meaning there is no current, independently confirmed revenue or valuation figure available. The company has pivoted its positioning to an \"Agent Workforce Platform\" for agentic AI, and was again named a Leader in Gartner's Magic Quadrant for the \"Agentic Era.\"",
         "ma": [{"name": "Algorithmia", "date": "2021", "value": null}, {"name": "Agnostiq", "date": "Feb 2025", "value": null}],
@@ -902,9 +903,9 @@
     },
     {
       "id": "dataiku", "name": "Dataiku", "category": "Data science / AI platform", "status": "ready", "pressure": 4,
-      "lastUpdated": "Jul 6, 2026",
+      "lastUpdated": "Jul 7, 2026",
       "curator": "Built from public research (Dataiku LLM Mesh documentation, Danelfin/analyst coverage, G2/Gartner reviews). No internal Klue export available yet - Product Claims rebuttal, discovery questions and analyst-recognition fields are flagged needs input.",
-      "changelog": [{"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
+      "changelog": [{"date": "Jul 7, 2026", "note": "Added Security & Incidents, Analyst Coverage, and Pricing Snapshot sections with sourced citations."}, {"date": "Jul 6, 2026", "note": "Initial card built from public research."}],
       "sections": {
         "background": "Founded in Paris in 2013 and now headquartered in New York, Dataiku raised a Series F in 2022 valuing the company at $3.7B (backed by Iconiq Capital, CapitalG, Tiger Global, and Snowflake Ventures) and reportedly crossed $200M in ARR by 2023. Dataiku has been named a Leader in Gartner's Magic Quadrant for AI Platforms for Data Science and ML for five consecutive years through 2026, and has expanded aggressively into generative AI and agentic governance via its \"LLM Mesh\" architecture, which centralizes multi-LLM access, routing, cost control and governance for enterprise GenAI applications.",
         "ma": [],
